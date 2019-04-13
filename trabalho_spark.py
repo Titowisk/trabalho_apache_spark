@@ -45,10 +45,13 @@ lista_de_artigos = os.listdir(pasta_artigos)
 artigos = cria_spark_cache(pasta_artigos)
 
 # https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-operations
-for artigo_spark in artigos.values(): #dict.values() ->  [spark.read.text(artigo1).cache(), spark.read.text(artigo2).cache(), ...]
-    palavras_contadas = conta_palavras(artigo_spark)
+for artigo_nome, artigo_conteudo in artigos.items(): #dict.values() ->  [spark.read.text(artigo1).cache(), spark.read.text(artigo2).cache(), ...]
+    palavras_contadas = conta_palavras(artigo_conteudo)
     
-    print( palavras_contadas.collect() ) # ! Problema de codificação de bits
+    resultado_path = 'resultado/{arquivo}' .format(arquivo=artigo_nome)
+
+
+    # print( palavras_contadas.collect() ) # ! Problema de codificação de bits
 
 
 spark.stop()
