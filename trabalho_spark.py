@@ -42,7 +42,9 @@ def conta_palavras(artigo_pdf):
 
 
 # MAIN
-
+#inicializa dicionario
+topArtigos = {}
+palavra = input("Digite a palavra para verificar as ocorrencias nos artigos:\n")
 try:
     # medir tempo
     dt1 = datetime.datetime.now()
@@ -53,18 +55,27 @@ try:
 
     artigos = cria_spark_cache(pasta_artigos)
 
-    # https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-operations
+    # https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-oaperations
     for artigo_nome, artigo_conteudo in artigos.items(): #dict.values() ->  [spark.read.text(artigo1).cache(), spark.read.text(artigo2).cache(), ...]
         palavras_contadas = conta_palavras(artigo_conteudo) # objeto <class 'pyspark.sql.dataframe.DataFrame'> 
 
         # https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrameWriter
         # https://stackoverflow.com/questions/31937958/how-to-export-data-from-spark-sql-to-csv
         palavras_contadas.coalesce(1).write.csv(path=os.path.join('resultado', artigo_nome), sep='|', mode='append')
-        
+
+        #Filtra as linhas que contem a palavra desejada
+        artigoFiltrado = palavras_contadas.where(palavras_contadas.palavras == palavra)        
+        try:
+            #Adiciona no dicionario ("Nome do Artigo" : contagem)
+            topArtigos[artigo_nome] = artigoFiltrado.first()[1]
+        except:            
+            pass
 finally:
     if spark: spark.stop()
     dt2 = datetime.datetime.now()
     print("Tempo gasto: {tempo}".format(tempo = dt2-dt1))
+    #print(topArtigos)
+    print("Os três artigos com maior número de ocorrencias da palavra " + palavra + ": " + str(sorted(topArtigos, key=topArtigos.get, reverse =True)))
 
 
 
