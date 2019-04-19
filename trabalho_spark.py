@@ -42,18 +42,20 @@ def cria_arquivo_contagem(contagem, titulo_artigo):
 spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
 
 
-pasta_artigos = 'artigos_teste' # trocar para artigos_teste para... ... ... teste (com arquivos menores) :D
+pasta_artigos = 'artigos_txt' # trocar para artigos_teste para... ... ... teste (com arquivos menores) :D
 lista_de_artigos = os.listdir(pasta_artigos)
 
 artigos = cria_spark_cache(pasta_artigos)
 
 # https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-operations
 for artigo_nome, artigo_conteudo in artigos.items(): #dict.values() ->  [spark.read.text(artigo1).cache(), spark.read.text(artigo2).cache(), ...]
-    palavras_contadas = conta_palavras(artigo_conteudo)
+    palavras_contadas = conta_palavras(artigo_conteudo) # objeto <class 'pyspark.sql.dataframe.DataFrame'> 
+
+    # https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrameWriter
+    # https://stackoverflow.com/questions/31937958/how-to-export-data-from-spark-sql-to-csv
+    palavras_contadas.coalesce(1).write.csv(path=os.path.join('resultado', artigo_nome), sep='|', mode='append')
+    # palavras_contadas.show()
     
-    resultado_path = 'resultado/{arquivo}' .format(arquivo=artigo_nome)
-
-
     # print( palavras_contadas.collect() ) # ! Problema de codificação de bits
 
 
