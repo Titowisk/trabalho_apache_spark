@@ -1,0 +1,119 @@
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+Acessibilidade e tecnologia Web aplicadas à saúde humana
+Marcia Gadelha1, Brunno Albuquerque2, Daniane Novais3, Reinaldo Viana
+Alvares4, Marcelo Loutfi5
+1
+
+Centro Universitário Augusto Motta (UNISUAM)
+Caixa Postal 15.064 – 21.041-020 – Rio de Janeiro – RS – Brasil
+marcia.r.gadelha@gmail.com, brunno.inffo@gmail.com,
+danianenovais@hotmail.com, reinaldoviana@gmail.com,
+marcelo.loutfi@gmail.com
+
+Abstract. The Autistic Spectrum Disorder ASD reveals itself in distinct ways in
+each individual, can be defined by hypersensitivity of senses, absence of verbal
+communication. Although not identified cure, but there are research, therapies
+and treatments. The article proposes to create a digital prototype with the
+purpose of making known the activities of the daily routine of the child,
+helping to reduce anxiety, improve communication and contribute to the
+overall well being of children with ASD and caregivers.
+Resumo. O Transtorno do Espectro Autista TEA revela-se de maneiras
+distintas em cada indivíduo, pode ser definido pela hipersensibilidade de
+sentidos, ausência de comunicação verbal. Ainda não identificada cura, mas
+existem pesquisas, terapias e tratamentos. O artigo propõe criar um protótipo
+digital, com a finalidade de tornar conhecidas as atividades da rotina diária
+da criança, auxiliar na diminuição da ansiedade, melhorar a comunicação e
+contribuir para o bem – estar global de crianças com TEA e cuidadores.
+
+1. Introdução
+O Transtorno do Espectro Autista – TEA é uma reunião de sintomas
+comportamentais próprios que não apresentam uma causa determinada, caracterizado
+por comportamentos, interesses e atividades restritas e repetitivas e por deficiência na
+comunicação social e nas interações sociais manifestadas pela deficiência na utilização
+da linguagem verbal ou não verbal (DSM-5, 2013).
+Este artigo apresenta um aplicativo para auxiliar na evolução da comunicação
+entre crianças com TEA e seus responsáveis, cuidadores. A aplicação TEApoio foi
+desenvolvida para dispositivos móveis utilizando o framework PhoneGap, envolvendo
+tecnologias de HTML5, linguagem de estilo CSS e Javascript (ADOBE, 2013).
+
+2. TEApoio
+A partir do convívio de um dos autores com crianças autistas houve a
+compreensão dos desafios referentes ao cotidiano das mesmas. O aplicativo TEApoio
+foi idealizado de modo a permitir à criança visualizar as atividades de sua rotina diária,
+exibir pistas de como proceder em cada momento do seu dia, com ilustrações claras e
+simples de cada atividade, e utilizar de um reforço sonoro com uma legenda nomeando
+a atividade. Os pais ou cuidadores têm o papel muito importante: mostrar para a criança,
+por intermédio do smartphone, a ilustração da atividade da rotina que deve ser realizada
+65
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+em determinado momento do dia. Ao clicar na atividade, o som é emitido verbalizando
+a ação a ser realizada. O Tabela 1 apresenta as funcionalidades do aplicativo:
+Tabela 1: Funcionalidades do aplicativo TEApoio
+Funcionalidade
+
+Descrição
+
+Usuário(s)
+
+Agenda
+
+Exibe as atividades que a criança visualiza com seus Criança
+respectivos horários e turnos
+
+Gerência da
+Agenda
+
+Permite criação/configuração de novas atividades Pais e
+para as crianças
+Cuidadores
+
+Configuração
+Turno
+
+Permite associação das atividades ao turno (manhã, Pais e
+tarde, noite) de modo a prover uma dinâmica de Cuidadores
+atividades rotineiras
+
+Histórico
+
+Visualização das atividades realizadas e/ou não Pais e
+realizadas em um determinado turno ou período
+Cuidadores
+
+Na figura 1 é possível visualizar imagens das telas do aplicativo TEApoio.
+
+Figura 1. Telas do sistema TEApoio.
+
+A concepção das telas do TEApoio considerou várias estratégias, técnicas e
+ferramentas desenvolvidas para estimular as habilidades sociais, comportamentais e de
+linguagem dos pacientes com autismo, dentre as quais destacamos: ABA – Applied
+Behavior Analysis, modelo TEACCH – Treatment and Education ofAutistic and Related
+Communication Handicapped Children e PECS – Picture Exchange Communication
+System.
+
+3. Conclusões
+Este trabalho apresentou o aplicativo TEApoio, uma ferramenta desenvolvida
+para auxílio de crianças com TEA, que torna viável a inclusão de hábitos de uma rotina
+baseada em turnos e auxilia no desenvolvimento da comunicação das crianças com
+TEA. A concepção das telas e projeto de interação são baseadas em técnicas, modelos e
+ferramentas amplamente estudadas e difundidas no amparo ao paciente autista.
+
+4. Referências
+ADOBE, Adobe PhoneGap Build package mobile apps in the cloud.(2013)
+Disponível em: < https://build.phonegap.com/ > Acesso em: 18 out.2017.
+DSM-5 Diagnostic and Statistical Manual of Mental Discorders – FIFTH edition
+American Psychiatric Association 2013.
+66
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+
