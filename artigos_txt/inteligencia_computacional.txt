@@ -25,14 +25,6 @@ Departamento de Engenharia Eletrônica – UFMG
 Caixa Postal 15.064 – 91.501-970 – Belo Horizonte – MG – Brazil
 danilo.caldeira@yahoo.com, tom@hc.ufmg.br, {beda, apbraga}@ufmg.br
 
-Abstract. The Centro de Telessaúde’s chief service is the provision of Electrocardiograms (ECG) to remote regions of the state of Minas Gerais. The high
-daily volume of exams performed by the Centro demands the development of an
-automated ECG analysis system. This work focuses on selecting features among
-those extracted from the time-series associated with each ECG record in order to
-construct classifiers, whose outputs indicate the presence or absence of a given
-heart pathology in the patient under analysis. We use correlation rankings to
-select variables, and validate those choices by evaluating the performances of a
-number of Support Vector Machines constructed with those variables.
 Resumo. O principal serviço ofertado pelo Centro de Telessaúde de Minas
 Gerais é o Eletrocadiograma (ECG) em regiões remotas do estado. O volume
 diário de exames realizados pelo Centro demanda o desenvolvimento de um
@@ -46,12 +38,6 @@ Vetor Suporte construı́dos com estas variáveis.
 O propósito do ECG, carro chefe do Centro de Telessaúde do Hospital das Clı́nicas
 da Universidade Federal de Minas Gerais, é detectar patologias cardı́acas – arritmias, defeitos de condução e anomalias morfológicas – analisando-se formas de ondas de tensão elétrica associadas aos ciclos de polarização e despolarização das células
 30
-
-c
-2018
-SBC — Soc. Bras. de Computação
-
-VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
 
 cardı́acas [et. al. 2010]. A interpretação destes exames demanda, portanto, alto grau de
 conhecimento técnico.
@@ -81,16 +67,6 @@ de cada variável com o rótulo correspondente. Uma vez que não estamos inte
 direção da correlação, ordenamos as variáveis de acordo com a magnitude desta métrica,
 incialmente selecionando aquelas 5 variáveis que dela apresentarem os maiores valores,
 em seguida subtraindo ou adicionando variáveis iterativamente.
-
-
-C − µC
-X − µX
-ρ(X, C) = E
-×
-σx
-σC
-
-
 
 (1)
 
@@ -102,12 +78,6 @@ desempenho de cada SVM utilizando a área sob a curva ROC (AUC) computada pelo 
 sensibilidade e especificidade computadas sob o conjunto de teste. Ao fim dos 100 treinamentos, utilizamos o resumo estatı́stico das métricas para julgar a escolha de variáveis
 como aceitável ou não.
 31
-
-c
-2018
-SBC — Soc. Bras. de Computação
-
-VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
 
 Devido ao desbalanço de classe observado em alguns dos problemas, foi
 necessário utilizar oversampling via SMOTE [Chawla et al. 2002], sem undersampling
@@ -135,12 +105,6 @@ Fomos capazes de selecionar as variáveis mais relevantes para 13 dos problemas
 classificação. Os próximos passos envolverão, então, comparar as soluções baseadas em
 32
 
-c
-2018
-SBC — Soc. Bras. de Computação
-
-VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
-
 Table 2. Problemas de classificação parcialmente resolvidos, suas respectivas
 variáveis representativas, e métricas de desempenho calculadas.
 
@@ -155,28 +119,5 @@ Por fim, outros passos incluem implementar algoritmos rápidos e confiáveis d
 extração de variáveis, e integrá-los ao estágio de classificação de patologias, numa
 constelação de softwares que venham a compor o sistema completo de análise de ECGs.
 
-References
-Chawla, N. V., Bowyer, K. W., Hall, L. O., and Kegelmeyer, W. P. (2002). SMOTE: Synthetic Minority Over-sampling Technique. Journal of Artificial Intelligence Research,
-16(.).
-et. al., P. W. M. (1990). Methodology of ECG interpretation in the Glasgow program.
-Methods of Information in Medicine, 29(1):354–371.
-et. al., P. W. M. (2010). Comprehensive Electrocardiography. Springer-Verlag London,
-2nd edition.
-Kuhn, M. (2017). The caret packaget.
-Lino, V. (2017). Técnica de Extração de Parâmetros em Eletrocardiograma Para
-Classificação de Patologia. UFMG, - edition.
-Party, C. W. (1990). Recommendations for measurement standards in quantitative electrocardiography. European Heart Journal, 6(10):815–825.
-Vapnik, V. and Cortes, C. (1995).
-20(3):273–297.
-
-Support Vector Machines.
-
-33
-
-Machine Learning,
-
-c
-2018
-SBC — Soc. Bras. de Computação
 
 

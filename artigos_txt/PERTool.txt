@@ -17,16 +17,7 @@ Caixa Postal 3.037 – 37.200-000 – Lavras – MG – Brasil
 {ph.lima.tecnico, diego.bevilaqua86, jdtsncomp, flaviane.vicente,
 anacarolina.inocencio}@gmail.com, {heitor, pauloa.junior}@dcc.ufla.br
 
-Abstract. Teachers, students and project managers related to computer
-science courses, engineering and related fields have reported difficulties in
-teaching and learning some content using some interactive features such as
-lectures based on books and presentations with slides, as well as costly
-replication of examples presented in class without the aid of computational
-tools. This article presents the PERTool, a digital educational tool that allows
-users to create and manipulate networks PERT / CPM, which is one of the
-issues addressed in disciplines such as Operations Research and Software
-Design. This technique is used to optimize cost and time schedules for the
-development of various types of projects.
+
 Resumo. Professores, estudantes e gerentes de projetos relacionados aos
 cursos de Ciência da Computação, Engenharias e áreas afins têm relatado
 dificuldades no ensino-aprendizagem de alguns conteúdos utilizando recursos
@@ -47,10 +38,6 @@ entre si [1]; esse conjunto de atividades é comumente conhecido como cronograma
 [3]. No contexto de ensino na área de Computação, essas atividades são apresentadas
 em disciplinas relacionadas à Engenharia de Software; mais especificamente, quando o
 assunto é a construção e o acompanhamento de cronogramas de projetos de software. A
-
-2313
-
-XXXVI Congresso da Sociedade Brasileira de Computação
 
 gerência de projetos é uma atividade essencial e complexa [4], pois o bom
 gerenciamento não garante o sucesso de um projeto, mas o mau gerenciamento aumenta
@@ -107,9 +94,6 @@ denominada PERTool. O diferencial oferecido por essa ferramenta é o seu enfoque
 educacional, haja vista que as demais ferramentas existentes para esse tipo de conteúdo
 [7, 8, 12], comentadas na Seção 3 deste trabalho, não possuem esse enfoque. Além
 
-2314
-
-WEI - 24º Workshop sobre Educação em Computação
 
 disso, outro aspecto que ressalta a importância da PERTool é o fato de ela ser opensource, uma vez que a maioria das ferramentas para se trabalhar com redes PERT/CPM
 são plug-ins para ferramentas proprietárias, tais como, MS Project. Por ser open-source,
@@ -157,10 +141,6 @@ o paralelismo entre elas. Além disso, há atividades chamadas “atividades fan
 um tipo especial de atividade que não consome tempo nem recursos. Atividades
 fantasmas são representadas por uma linha pontilhada (Figura 4). Um dos casos em que
 
-2315
-
-XXXVI Congresso da Sociedade Brasileira de Computação
-
 uma atividade fantasma deve ser utilizada é para mostrar a interdependência entre
 múltiplas atividades. Por exemplo, na Figura 4, a atividade “Café com leite” depende
 das atividades “Moer café” e “Comprar leite”, porém a atividade “Coalhada” depende
@@ -205,10 +185,6 @@ pela empresa Critical Tools [9]. O funcionamento do WBS Schedule Pro acontece po
 meio da integração do sistema com o MS Project. Algumas de suas limitações é que ele
 é um sistema proprietário (e pago) e não possui enfoque educacional.
 
-2316
-
-WEI - 24º Workshop sobre Educação em Computação
-
 ProjectLibre [12] é um projeto open-source disponibilizado de forma gratuita a
 seus usuários. Como uma de suas funções, podem ser manipuladas redes PERT/CPM.
 Por um lado, o seu enfoque é o gerenciamento de projetos; por outro lado, não há
@@ -244,39 +220,6 @@ folga.
 5 Data da última atualização da ferramenta
 6 Plataformas suportadas pela ferramenta
 
-A
-X
-
-Ferramentas
-B
-C
-X
-X
-
-X
-
-X
-
--
-
-2013
-W; M
-
-X
-2016
-L; W; M
-
-2013
-W; M
-
-D
-X
-X
-X
-X
-2016
-L; W; M
-
 De acordo com os dados apresentados na Tabela 1, nota-se que as ferramentas
 WBS Schedule Pro e VisioPERT estão obsoletas, visto que a data da última atualização
 foi há 3 anos (2013). Além disso, quanto à portabilidade das ferramentas analisadas,
@@ -294,10 +237,6 @@ Nesta seção, são descritas as principais funções existentes na ferramenta P
 destacando as diferenças entre os demais softwares analisados. Além disso, à medida
 que as funções são descritas, discussões a respeito dos benefícios educacionais que
 podem ser obtidos com a utilização dessa ferramenta são apresentados. É importante
-
-2317
-
-XXXVI Congresso da Sociedade Brasileira de Computação
 
 ressaltar que PERTool pode ser obtida gratuitamente por meio de download e seu
 código
@@ -338,10 +277,6 @@ pois permite ao usuário (i) continuar seu trabalho posteriormente; e (ii) compa
 seu projeto com outras pessoas, tornando o trabalho de construção de redes PERT/CPM
 colaborativo. As imagens utilizadas na Seção 2 deste artigo foram exportadas com
 PERTool.
-
-2318
-
-WEI - 24º Workshop sobre Educação em Computação
 
 Outro recurso importante na PERTool, não disponível nas demais ferramentas
 analisadas, é as legendas explicativas sobre os elementos gráficos de uma rede
@@ -390,44 +325,7 @@ questionário é composto por 34 afirmações (Tabela 2), para as quais os parti
 avaliação deveriam indicar o quanto concordam com as mesmas, de acordo com uma
 escala Likert de 7 pontos variando de “discordo fortemente” a “concordo fortemente”.
 
-2319
-
-XXXVI Congresso da Sociedade Brasileira de Computação
-
 Tabela 2 - Perguntas do Questionário de Avaliação
-#
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
 
 Perguntas
 Houve algo interessante na ferramenta que capturou minha atenção.
@@ -466,42 +364,6 @@ apresentado nela.
 33 Depois do uso da ferramenta, consigo compreender melhor os temas apresentados nela.
 34 Depois do uso da ferramenta, sinto que consigo aplicar melhor os temas relacionados com nela.
 
-Categoria
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-M
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-A
-A
-A
-
 5.2 Análise dos Resultados
 A avaliação da ferramenta PERTool foi realizada por 18 alunos do curso Bacharelado
 em Ciências da Computação da Universidade Federal de Goiás - Regional Jataí
@@ -521,10 +383,6 @@ As dimensões da categoria “Motivação” são Atenção (perguntas 1 e 2 da 
 concordância por parte dos avaliadores com relação à Atenção (83,3%) e Confiança
 (88,9%). A Atenção refere-se às respostas cognitivas dos alunos a estímulos racionais. A
 
-2320
-
-WEI - 24º Workshop sobre Educação em Computação
-
 Confiança refere-se à criação de expectativas positivas nos alunos, ao proporcionar-lhes
 experiências de sucesso decorrentes de suas próprias habilidades e esforço [15]. Além
 disso, a avaliação mostrou também que Satisfação (69,4% das avaliações positivas) não
@@ -537,61 +395,6 @@ elementos de jogos em atividades que não sejam jogos [14]. Por fim, a categoria
 motivado ao utilizar a ferramenta educacional como auxilio para aprendizagem dos
 conteúdos sobre redes PERT/CPM.
 Tabela 3 - Média de Avaliações por Categoria
-CATEGORIAS / DIMENSÕES
-MOTIVAÇÃO
-MÉDIA
-
-Satisfação
-Relevância
-Confiança
-Atenção
-
-AVALIAÇÕES
-Positivas (5 até 7) Neutras (4 apenas) Negativas (1 até 3)
-69,4%
-16,7%
-13,9%
-81,1%
-10,0%
-8,9%
-88,9%
-8,3%
-2,8%
-83,3%
-13,9%
-2,8%
-80,7%
-12,2%
-7,1%
-
-EXPERIÊNCIA
-DO USUÁRIO
-
-Desafio
-Habilidade/Competência
-MÉDIA
-
-69,4%
-77,8%
-73,6%
-
-13,9%
-12,9%
-13,4%
-
-16,7%
-9,3%
-13%
-
-APRENDIZAGEM
-
-Aprendizagem
-
-74,1%
-
-20,4%
-
-5,7%
 
 A categoria “Experiência do Usuário” obteve, em média, 73,6% das avaliações
 positivas, tendo como pior resultado a dimensão Desafio (afirmações 21 à 31 da Tabela
@@ -619,10 +422,6 @@ conduzirem melhor seus estudos sobre esse assunto. Para constatar o alcance dess
 objetivo, uma avaliação com alunos de uma instituição federal de ensino superior foi
 realizada. Nessa avaliação, foi constatada que a PERTool obteve razoável avaliação
 
-2321
-
-XXXVI Congresso da Sociedade Brasileira de Computação
-
 positiva, em que as categorias (Motivação, Experiência do Usuário e Aprendizagem)
 sugeridas por um modelo de avaliação alcançaram a pontuação 80,7%, 73,6% e 74,1%
 (Positivas - 5 a 7, na escala Likert). Por outro lado, propostas de melhorias foram
@@ -639,56 +438,5 @@ criar mecanismos de ajuda para PERTool ferramenta para auxiliar o usuário enqua
 ele a utiliza. Esse assistente pode ajudar o usuário com dicas ou com correção
 automática de erros, informando ao usuário qual erro ocorreu e como ele foi resolvido.
 Além disso, detectar possíveis erros e problemas de usabilidade da PERTool e corrigilos em uma próxima versão.
-
-7. Referências
-[1]
-[2]
-[3]
-
-[4]
-[5]
-[6]
-[7]
-[8]
-[9]
-[10]
-[11]
-[12]
-[13]
-[14]
-
-[15]
-
-H. S. Swanson, R. E. D. Woolsey (1969), “A PERT-CPM Tutorial”
-Sancho, J. M (1998) “Para Uma Tecnologia Educacional”. Porto Alegre, Artmed.
-Lima, A et al. (2010) “Uma Ferramenta Baseada em Simulação Gráfica para Suporte ao
-Ensino de Redes de Computadores”. In Workshop de Educação em Informática BahiaAlagoas-Sergipe (WEIBASE).
-Sommerville, “Engenharia de Software”, 8ª edição, Editora Pearson.
-Judith S. Liebman, (1998) Teaching Operations Research: Lessons from Cognitive
-Psychology. Interfaces 28(2):104-110.
-Paas, F. G. W (1992) Training Strategies for Attaining Transfer of Problem-Solving Skill
-in Statistics: A Cognitive-Load Approach. Journal of Educational Psychology, Vol. 84,
-Nº. 4, 429-434.
-WBS Schedule Pro, Disponível em: http://www.criticaltools.com/download.html.
-Acessado em: Abril/15.
-Visio PERT, Disponível em: http://goo.gl/PVEhGf. Acessado em: Abril/15.
-Critical Tools, Disponível em: http://www.criticaltools.com/. Acessado em: Abril/15.
-INEP - Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira. ENADE
-2014. Disponível em: http://portal.inep.gov.br/web/guest/enade/provas-e-gabaritos-2014.
-Acessado em: Abril/15.
-INEP - Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira. ENADE
-2011. Disponível em: http://portal.inep.gov.br/web/guest/enade/provas-e-gabaritos-2011.
-Acessado em: Abril/15.
-ProjectLibre, Disponível em: http://sourceforge.net/projects/projectlibre/. Acessado em:
-Abril/15.
-Jornal O Globo. “Falta de software empaca dados de satélite brasileiro”. Disponível em:
-http://goo.gl/3koFCr. Acessado em: Abril/15.
-Fadel, Ulbricht, Batista, Vanzin, “Gamificação na educação” (2014), Editora Pimenta
-Cultural.
-Savi, R., Von Wangenheim, C. G., Ulbricht, V., and Vanzin, T. (2010) “Proposta de um
-Modelo de Avaliação de Jogos Educacionais”. In: RENOTE - Revista Novas Tecnologias
-na Educação, vol. 8, no. 3.
-
-2322
 
 

@@ -241,32 +241,6 @@ localização real lr , adicionando-as ao conjunto L, formando k−1 localizac
 localizações são adicionadas à localização real lr em L e enviadas ao servidor do LBS.
 Algoritmo 2: P RIV LBS
 
-1
-2
-3
-4
-5
-6
-
-7
-8
-9
-10
-
-Entrada: k, P , lr , R′
-Saı́da: L
-se R’ == vazio então
-L ← DLP (k, lr );
-senão
-para cada ri′ ∈ R′ faça
-Ai ← BuscarDistância(P, ri′ );
-Insere em L a localização contida em Ai cuja probabilidade seja a mais
-próxima de lr ;
-fim
-Insere lr em L
-fim
-retorna L
-
 A Figura 3 ilustra como funciona o algoritmo PrivLBS. Novamente, os pontos
 em azul e vermelho representam as localizações reais e falsas, respectivamente. Os pontos em cinza são as localizações das consultas anteriores. A Figura 3(a) representa o
 momento inicial, onde o usuário realiza a primeira consulta anonimizada com grau de
@@ -278,10 +252,6 @@ pelo algoritmo PrivLBS que irão fazer parte da requisição junto à locali
 enviada ao LBS. Como o PrivLBS seleciona, para cada localização da consulta anterior,
 uma localização que seja alcançável por ela, dado a velocidade do usuário e o intervalo
 115
-
-2018 SBC 33rd Brazilian Symposium on Databases (SBBD)
-
-August 25-26, 2018 - Rio de Janeiro, RJ, Brazil
 
 de tempo decorrido entre as consultas, um possı́vel ataque que visa explorar esse critério
 observa cada uma das localizações na nova consulta como deslocamentos possı́veis do
@@ -302,10 +272,6 @@ Figura 3. Anonimização de localizações utilizando o algoritmo PrivLBS.
 Foram realizados experimentos a fim de avaliar a eficácia do algoritmo PrivLBS frente a
 ataques baseados em distância. Nossa análise foi realizada com base na taxa de reconhecimento da localização real quando aplica-se o ataque baseado em distância sobre a consulta. Nós também mensuramos o grau de privacidade da requisição, denotado por sua entropia, que consiste na incerteza de identificação da localização real dentre as localizações
 116
-
-2018 SBC 33rd Brazilian Symposium on Databases (SBBD)
-
-August 25-26, 2018 - Rio de Janeiro, RJ, Brazil
 
 falsas selecionadas [Serjantov and Danezis 2003], independente da distância. Quanto
 maior a entropia, mais incerta é a informação acerca das localizações.
@@ -339,27 +305,11 @@ Entropia
 DLP
 PrivLBS
 
-Grau de anonimização k
-2
-4
-8
-16
-32
-0,69 1,38 2,07 2,77 3,46
-0,58 1,26 1,92 2,60 3,28
-
 Tabela 1. Comparação da entropia entre os algoritmos DLP e PrivLBS.
 
 A Tabela 1 mostra a entropia média obtida utilizando os algoritmos DLP e PrivLBS na seleção das localizações falsas da consulta, variando o grau de privacidade k.
 Observa-se um comportamento constante, no qual o DLP apresentou uma entropia um
 1
-
-http://www.transitchicago.com
-117
-
-2018 SBC 33rd Brazilian Symposium on Databases (SBBD)
-
-August 25-26, 2018 - Rio de Janeiro, RJ, Brazil
 
 pouco maior em todos os graus analisados. Isso implica que o DLP é menos suscetı́vel a
 ataques que exploram a probabilidade das localizações contidas nas consultas realizadas
@@ -372,42 +322,6 @@ para este tipo de ataque, garantindo a propriedade do modelo k-anonimato, uma ve
 para qualquer grau de privacidade k no gráfico, a taxa de reconhecimento ficou abaixo de
 1
 .
-k
-
-Taxa de reconhecimento
-
-100%
-PrivLBS
-DLP
-
-80%
-60%
-
-55.7 54.9
-
-40%
-24.7
-17.2
-
-20%
-
-8.2
-
-12.2
-3.9 6.2
-
-2.4 3.1
-
-0%
-2
-
-4
-
-8
-16
-Grau de privacidade k
-
-32
 
 Figura 4. Taxas de reconhecimento da localização real para o ataque baseado na
 probabilidade de execução das consultas.
@@ -430,52 +344,6 @@ PrivLBS é, em média, quatro vezes menor que o algoritmo DLP para os valores 
 k = {2, 4, 8, 16, 32}. Essa probabilidade chega a ser até cinco vezes menor que o algoritmo DLP quando k = 8, diminuindo o valor, que antes era de 59,2%, para 11,4%.
 118
 
-2018 SBC 33rd Brazilian Symposium on Databases (SBBD)
-
-Taxa de reconhecimento
-
-100%
-
-August 25-26, 2018 - Rio de Janeiro, RJ, Brazil
-
-99.1
-
-PrivLBS
-DLP
-
-88.8
-
-80%
-60%
-
-59.2
-52.2
-
-40%
-
-29.1
-
-24.1
-20%
-
-11.4
-
-14.7
-6.2
-
-3.5
-
-0%
-2
-
-4
-
-8
-16
-Grau de privacidade k
-
-32
-
 Figura 5. Taxas de reconhecimento da localização real para o ataque baseado
 em distância euclidiana.
 
@@ -494,55 +362,4 @@ de rede de ruas para definir as localizações alcançáveis.
 
 Agradecimentos
 Os autores agradecem à CAPES, ao CNPq (132614/2017-0) e ao LSBD/UFC pelo financiamento parcial deste trabalho.
-
-Referências
-Gedik, B. and Liu, L. (2008). Protecting location privacy with personalized k-anonymity:
-Architecture and algorithms. IEEE Transactions on Mobile Computing, 7(1):1–18.
-Kido, H., Yanagisawa, Y., and Satoh, T. (2005). An anonymous communication technique
-using dummies for location-based services. In ICPS ’05. Proceedings. International
-Conference on Pervasive Services, 2005., pages 88–97.
-Li, H., Sun, L., Zhu, H., Lu, X., and Cheng, X. (2014). Achieving privacy preservation
-in wifi fingerprint-based localization. In INFOCOM, 2014 Proceedings IEEE, pages
-2337–2345. IEEE.
-119
-
-2018 SBC 33rd Brazilian Symposium on Databases (SBBD)
-
-August 25-26, 2018 - Rio de Janeiro, RJ, Brazil
-
-Lu, R., Lin, X., Shi, Z., and Shao, J. (2014). Plam: A privacy-preserving framework
-for local-area mobile social networks. In INFOCOM, 2014 Proceedings IEEE, pages
-763–771. IEEE.
-Machanavajjhala, A., Gehrke, J., Kifer, D., and Venkitasubramaniam, M. (2006). ldiversity: Privacy beyond k-anonymity. pages 24–24.
-Niu, B., Gao, S., Li, F., Li, H., and Lu, Z. (2016). Protection of location privacy in continuous lbss against adversaries with background information. In 2016 International
-Conference on Computing, Networking and Communications (ICNC), pages 1–6.
-Niu, B., Li, Q., Zhu, X., Cao, G., and Li, H. (2014). Achieving k-anonymity in privacyaware location-based services. In INFOCOM, 2014 Proceedings IEEE, pages 754–
-762. IEEE.
-Niu, B., Li, Q., Zhu, X., Cao, G., and Li, H. (2015). Enhancing privacy through caching
-in location-based services. In Computer Communications (INFOCOM), 2015 IEEE
-Conference on, pages 1017–1025. IEEE.
-Serjantov, A. and Danezis, G. (2003). Towards an information theoretic metric for anonymity. In Dingledine, R. and Syverson, P., editors, Privacy Enhancing Technologies,
-pages 41–53, Berlin, Heidelberg. Springer Berlin Heidelberg.
-Sun, G., Chang, V., Ramachandran, M., Sun, Z., Li, G., Yu, H., and Liao, D. (2017a).
-Efficient location privacy algorithm for internet of things (iot) services and applications. Journal of Network and Computer Applications, 89:3 – 13. Emerging Services
-for Internet of Things (IoT).
-Sun, G., Liao, D., Li, H., Yu, H., and Chang, V. (2017b). L2p2: A location-label based
-approach for privacy preserving in lbs. Future Generation Computer Systems, 74:375
-– 384.
-Sweeney, L. (2002). k-anonymity: A model for protecting privacy. International Journal
-of Uncertainty, Fuzziness and Knowledge-Based Systems, 10(05):557–570.
-Tsoukaneri, G., Theodorakopoulos, G., Leather, H., and Marina, M. K. (2016). On the
-inference of user paths from anonymized mobility data. In 2016 IEEE European Symposium on Security and Privacy (EuroS P), pages 199–213.
-Ullah, I. and Shah, M. A. (2016). A novel model for preserving location privacy in internet of things. In 2016 22nd International Conference on Automation and Computing
-(ICAC), pages 542–547.
-Vu, K., Zheng, R., and Gao, J. (2012). Efficient algorithms for k-anonymous location
-privacy in participatory sensing. In 2012 Proceedings IEEE INFOCOM, pages 2399–
-2407.
-Ying, B. and Makrakis, D. (2014). Protecting location privacy with clustering anonymization in vehicular networks. In Computer Communications Workshops (INFOCOM
-WKSHPS), 2014 IEEE Conference on, pages 305–310. IEEE.
-Zhu, X., Chi, H., Niu, B., Zhang, W., Li, Z., and Li, H. (2013). Mobicache: When kanonymity meets cache. In Global Communications Conference (GLOBECOM), 2013
-IEEE, pages 820–825. IEEE.
-
-120
-
 

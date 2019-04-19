@@ -11,16 +11,7 @@ Rua Rui Barbosa Qd 13 Lt. 1-A Setor Aeroporto – Campos Belos – GO – Brazil
 Este trabalho teve apoio financeiro do PIPECTI / IF Goiano para apresentação.
 {cleon.junior,zara.hoffmann}@ifgoiano.edu.br
 
-Abstract. The use of Information and Communication Technologies in the educational environment indicates a possibility of educators and students exercise
-their own citizens through the use of technology. In this context, the development
-of diversified didactics actions which combine scientific knowledge to decisions
-taken on a day-to-day that stimulate significant approaches of understanding
-scientific knowledge, it becomes a possible alternative, both for the development of software systems and for the Science teaching. Within a development
-proposal of creativity and initiative, this work aims beyond the interdisciplinary
-interaction between software development areas with common base classes, it is
-also going to develop a technological prototype in a game format to be applied
-in Education Science. We intend apply to freshman students, who had presented
-a large gap of scientific content, after diagnosis survey.
+
 Resumo. O uso das Tecnologias da Informação e Comunicação no meio educacional aponta para uma possibilidade de professores e alunos exercerem sua
 própria cidadania por meio do uso das tecnologias. Neste contexto, o desenvolvimento de ações didáticas diversificadas que aliem saberes cientı́ficos às
 decisões tomadas no dia-a-dia que estimulem abordagens significativas para
@@ -38,9 +29,6 @@ O termo Tecnologia da Informação e Comunicação (TIC) é usado no contex
 quanto o uso educacional das tecnologias da informação e comunicação tais como a
 televisão, o computador e outras mı́dias digitais. Numa visão determinista, conforme
 
-700
-
-ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
 
 [Hato Sánchez and Vargas Lema 2013], tais tecnologias apontam para um conjunto de
 inovações tecnológicas e, seu conjunto de ferramentas, proporcionam uma redefinição radical do comportamento e funcionamento da sociedade contemporânea. Já na visão instrumentalista de [Castels and em Rede 1999], “a tecnologia não determina a sociedade;
@@ -80,9 +68,6 @@ de jogo para aprendizagem de conceitos de ciências naturais.
 Os jogos, ou elementos de jogos, estão inseridos cada vez mais no meio educacional,
 e é possı́vel encontrá-los para o ensino das mais diversas disciplinas. Para o ensino de
 
-701
-
-XXXVI Congresso da Sociedade Brasileira de Computação
 
 ciências, [Li and Tsai 2013] apresentam uma revisão dos trabalhos mais relevantes que
 utilizam jogos ou estratégias de jogos. Na pesquisa é apontada que a partir de 2006
@@ -118,10 +103,6 @@ vida. Desta forma, acredita-se que o estudante terá uma oportunidade a mais de
 conceitos básicos de quı́mica e associá-los no meio ambiente entendendo a necessidade
 dos elementos.
 
-702
-
-ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
-
 Para o desenvolvimento do jogo foi utilizado o Game Maker Studio 1 pela facilidade na criação de cenários e possibilidades geradas pelo mesmo. A documentação foi
 baseada no padrão de jogos, o Game Design. Durante o desenvolvimento foram utilizadas
 estratégias de engenharia de software, como testes de caixa preta na verificação de erros
@@ -138,33 +119,5 @@ cientı́ficos, onde os mesmos apresentam uma grande defasagem. Espera-se, ainda
 continuação deste trabalho, uma melhoria na interface do jogo, enriquecendo com elementos e animações que levem a concentração do jogador. Também espera-se criar novos
 enredos com objetivos distintos para aprimorar ainda mais o conhecimento dos usuários.
 
-Referências
-Boletsis, C. and McCallum, S. (2013). The table mystery: An augmented reality collaborative game for chemistry education. In Serious Games Development and Applications,
-pages 86–95. Springer.
-BUZATO, M. E. K. (2006). Letramentos digitais e formação de professores. In III Congresso Ibero-Americano EducaRede, volume 29.
-Capps, K. (2008). Chemistry taboo: An active learning game for the general chemistry
-classroom. Journal of chemical education, 85(4):518.
-Castels, M. and em Rede, A. S. (1999). A era da informação: economia, sociedade e
-cultura. São Paulo: Paz e Terra, 3.
-Hato Sánchez, M. A. and Vargas Lema, S. T. (2013). El uso de las tics como instrumento
-pedagógico en el proceso educativo de los estudiantes de bachillerato en quı́mico
-biólogo del i.t.s. república del ecuador durante el año lectivo 2011-2012.
-Li, M.-C. and Tsai, C.-C. (2013). Game-based learning in science education: a review of
-relevant research. Journal of Science Education and Technology, 22(6):877–898.
-Peixoto, J. and dos Santos Araújo, C. H. (2012). Tecnologia e educação: algumas
-considerações sobre o discurso pedagógico contemporâneo. Educação & Sociedade,
-33(118):253–268.
-SEMTEC, M. (1999). Parâmetros curriculares nacionais para o ensino médio. Brası́lia:
-Secretaria de Educação Média e Tecnologia.
-TIBÚRCIO, C. (1997). Guia de informática e internet para a educação brasileira. São
-Paulo.
-1
-
-Game Maker Studio:
-http://yoyogames.com/
-
-Motor de jogo com suporte à linguagem GML, disponı́vel em
-
-703
 
 

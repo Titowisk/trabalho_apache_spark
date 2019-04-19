@@ -11,13 +11,6 @@ Av. Dr. Silas Munguba, 1700, Campus do Itaperi – Fortaleza – CE
 
 davi.monteiro@aluno.uece.br, pauloh.maia@uece.br, junior.facanha@gmail.com
 
-Abstract. Self-adaptive systems have the ability to adapt their behavior during
-its execution in response to changes in the environment where it operates. To
-ensure the success of an adaptation, traditional approaches such as testing and
-software verification are insufficient. Therefore, it should adopt monitoring and
-runtime verification approaches to ensure that adaptations have the expected
-result. In this paper, we propose the Lotus@Runtime to perform, in an integrated manner, monitoring, verification, and violations notification found during
-execution of a self adaptive system.
 Resumo. Sistemas autoadaptativos possuem a capacidade de adaptar seu comportamento durante sua execução em resposta às mudanças no ambiente onde
 está inserido. Para garantir o sucesso de uma adaptação, abordagens tradicionais como testes e verificações de software são insuficientes. Por isso, deve-se
 adotar abordagens de monitoramento e verificação em tempo de execução para
@@ -37,10 +30,6 @@ no ambiente, que podem representar uma simples reconfiguração ou até uma m
 no modelo do sistema, resultando em uma alteração de sua arquitetura [Chen et al. 2014].
 A adaptação pode acontecer para que uma funcionalidade do sistema não deixe de ser
 executada (por exemplo, a troca de um serviço por outro similar caso o primeiro tenha
-
-1046
-
-SBCUP - 8º Simpósio Brasileiro de Computação Ubíqua e Pervasiva
 
 ficado indisponı́vel) ou para garantir que requisitos não funcionais sejam atendidos, como
 nı́veis de confiabilidade, segurança ou disponibilidade, dentre outros.
@@ -79,10 +68,6 @@ Sistemas de software autoadaptativos modificam seu próprio comportamento em re
 às mudanças de contexto [Oreizy et al. 1999]. Pelo contexto, entende-se o ambiente no
 qual o sistema está inserido, ou seja, quaisquer itens observáveis do sistema, tais como:
 
-1047
-
-XXXVI Congresso da Sociedade Brasileira de Computação
-
 entradas de usuário, sensores, outras aplicações, entre outros. No âmbito de sistemas autoadaptativos, as adaptações têm papel fundamental no sucesso de tais aplicações. Por isso,
 adaptações devem ocorrer dentro de um ciclo de vida interminável durante a execução
 do sistema para que possam implantar as solicitações de mudanças requeridas, tanto pelo
@@ -119,10 +104,6 @@ execução.
 
 http://www.larces.uece.br/ gesad/ferramentas/lotus/
 
-1048
-
-SBCUP - 8º Simpósio Brasileiro de Computação Ubíqua e Pervasiva
-
 3.1. Arquitetura da ferramenta
 O Lotus@Runtime foi projetado com uma arquitetura extensı́vel baseada em componentes, possibilitando, dessa forma, um maior desacoplamento do seu código. A interface de
 programação disponibilizada pela ferramenta permite que componentes sejam instalados,
@@ -151,10 +132,6 @@ log.
 3.1.2. LotusModelComponent
 Para atender à necessidade de manter o modelo de um sistema autoadaptativo atualizado
 em relação às constantes adaptações que ocorrem ao longo do tempo, foi criado o compo-
-
-1049
-
-XXXVI Congresso da Sociedade Brasileira de Computação
 
 nente LotusModelComponent, o qual é responsável por manter o modelo atualizado
 em relação às mudanças no comportamento da aplicação e oferecer serviços para recuperar o modelo atualizado para outros componentes do Lotus@Runtime.
@@ -189,10 +166,6 @@ da etapa de planejamento, pois, dessa forma, o planejador terá informações
 adaptações que possam evitar possı́veis danos ao sistema.
 O componente ModelCheckerComponent faz o uso do serviço disponibilizado pelo NotifierComponent toda vez que uma verificação em tempo de execução
 encontra uma violação no modelo de uma aplicação autoadaptativa.
-
-1050
-
-SBCUP - 8º Simpósio Brasileiro de Computação Ubíqua e Pervasiva
 
 3.1.5. ConfigurationComponent
 O componente ConfigurationComponent foi desenvolvido com o objetivo de
@@ -231,10 +204,6 @@ dos autores autor no GitHub2 .
 
 https://github.com/davimonteiro
 
-1051
-
-XXXVI Congresso da Sociedade Brasileira de Computação
-
 Figura 2. Fluxo de uma adaptação
 
 A implementação de referência da aplicação TAS foi desenvolvida utilizando a
@@ -262,10 +231,6 @@ Posteriormente, para adicionar ao TAS a capacidade de gerar rastros de execuça
 foi necessário instrumentar o código fonte para que cada funcionalidade do TAS que corresponde a uma ação no modelo de comportamento da aplicação fosse gravada num log.
 Um exemplo de rastro de execução gerado pela aplicação é start, vitalParamMsg, analyzeData, changeDrug, notifyPA, stopMsg, exit. O arquivo de logs gerado foi utilizado como
 entrada para a o plugin Lotus@Runtime Configuration, conforme descrito anteriormente.
-
-1052
-
-SBCUP - 8º Simpósio Brasileiro de Computação Ubíqua e Pervasiva
 
 A estratégia de monitoramento adotada no estudo de caso foi a checagem de novos rastros
 a cada alteração no arquivo de logs.
@@ -295,10 +260,6 @@ sistema. Após serem coletadas, essas informações são enviadas para um se
 onde um verificador de modelo confere se o estado atual do sistema satisfaz as propriedades que foram especificadas em formalismo baseado em LTL. Em resposta às violações
 detectadas, a ferramenta grava o caminho de execução das violações em um relatório de
 erros no qual é processado offline.
-
-1053
-
-XXXVI Congresso da Sociedade Brasileira de Computação
 
 Em Arcaini et al.(2012), os autores apresentam o CoMA, uma ferramenta para
 monitoramento em tempo de execução de aplicações Java. Nessa proposta, são utilizadas anotações Java para associar o código-fonte do sistema monitorado com o modelo
@@ -338,10 +299,6 @@ Arcaini, P., Gargantini, A., and Riccobene, E. (2012). Coma: conformance monitor
 of java programs by abstract state machines. In Runtime Verification, pages 223–238.
 Springer.
 
-1054
-
-SBCUP - 8º Simpósio Brasileiro de Computação Ubíqua e Pervasiva
-
 Bencomo, N., Bennaceur, A., Grace, P., Blair, G., and Issarny, V. (2013). The role of
 models@ run. time in supporting on-the-fly interoperability. Computing, 95(3):167–
 190.
@@ -376,7 +333,5 @@ Salehie, M. and Tahvildari, L. (2009). Self-adaptive software: Landscape and res
 challenges. ACM Transactions on Autonomous and Adaptive Systems (TAAS), 4(2):14.
 Weyns, D. and Calinescu, R. (2015). Tele assistance: a self-adaptive service-based system
 examplar. In Proceedings of the 10th International Symposium on Software Engineering for Adaptive and Self-Managing Systems, pages 88–92. IEEE Press.
-
-1055
 
 

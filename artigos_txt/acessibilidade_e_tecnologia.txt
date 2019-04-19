@@ -11,13 +11,6 @@ marcia.r.gadelha@gmail.com, brunno.inffo@gmail.com,
 danianenovais@hotmail.com, reinaldoviana@gmail.com,
 marcelo.loutfi@gmail.com
 
-Abstract. The Autistic Spectrum Disorder ASD reveals itself in distinct ways in
-each individual, can be defined by hypersensitivity of senses, absence of verbal
-communication. Although not identified cure, but there are research, therapies
-and treatments. The article proposes to create a digital prototype with the
-purpose of making known the activities of the daily routine of the child,
-helping to reduce anxiety, improve communication and contribute to the
-overall well being of children with ASD and caregivers.
 Resumo. O Transtorno do Espectro Autista TEA revela-se de maneiras
 distintas em cada indivíduo, pode ser definido pela hipersensibilidade de
 sentidos, ausência de comunicação verbal. Ainda não identificada cura, mas
@@ -46,10 +39,6 @@ simples de cada atividade, e utilizar de um reforço sonoro com uma legenda nome
 a atividade. Os pais ou cuidadores têm o papel muito importante: mostrar para a criança,
 por intermédio do smartphone, a ilustração da atividade da rotina que deve ser realizada
 65
-
-c
-2018
-SBC — Soc. Bras. de Computação
 
 VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
 
@@ -112,8 +101,5 @@ DSM-5 Diagnostic and Statistical Manual of Mental Discorders – FIFTH edition
 American Psychiatric Association 2013.
 66
 
-c
-2018
-SBC — Soc. Bras. de Computação
 
 

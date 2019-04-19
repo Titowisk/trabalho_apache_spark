@@ -15,14 +15,6 @@ considera publicações do 17º Workshop de Informática Médica (2017),
 analisando os elementos apresentados sob a perspectiva do método citado. Os
 resultados indicam que a abordagem pode contribuir para incrementar a
 consistência e rigor dos trabalhos da área de computação aplicada à saúde.
-Abstract. This paper presents an exploratory research about the construction
-of computational applications in health. The goal is evaluate studies in this
-field from the perspective of the Design Science Research, an approach that
-involves design and development of artifacts in scientific process. The study
-considers publications of the 17th Workshop of Medical Informatics (2017),
-analyzing elements presented from the perspective of the mentioned method.
-The results indicate that the approach can contribute to increase the
-consistency and accuracy of the computational work applied to health.
 
 1. Introdução
 Pesquisas científicas na área de Computação Aplicada à Saúde (CAS) envolvem
@@ -43,11 +35,6 @@ Design Science Research (DSR). Sua essência é servir de aporte a investigaçõ
 trabalham com a criação ou prescrição de artefatos. Esses estudos não são atendidos de
 58
 
-c
-2018
-SBC — Soc. Bras. de Computação
-
-VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
 
 forma satisfatória pelas ciências sociais e naturais, pois nesses casos o foco central é
 explorar, descrever ou explicar algo. Na área de CAS é possível encontrar pesquisas que
@@ -80,29 +67,6 @@ Método, abordagem de pesquisa empregada
 Discussão sobre os resultados
 Conclusões, retomar pontos relevantes
 
-Medeiros et al.
-(2017)
-X
-X
-
-Neto et al.
-(2017)
-X
-X
-
-Oliveira, Lucena
-e Felix (2017)
-X
-
-X
-X
-
-X
-X
-
-X
-X
-
 Além dos aspectos citados, é possível extrair algumas características gerais da
 seleção: os problemas de pesquisa têm caráter prático (identificar problemas
 pulmonares); as soluções apoiam-se em técnicas com fundamentação teórica
@@ -118,12 +82,6 @@ investigações. O método de pesquisa, por sua vez, facilita que ações sejam 
 pela comunidade científica. Como apresentado no Quadro 1, a metodologia utilizada nas
 publicações selecionadas não é destacada. Neste sentido, adotar o método DSR pode
 59
-
-c
-2018
-SBC — Soc. Bras. de Computação
-
-VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
 
 evidenciar o paradigma base da investigação e, consequentemente, as ações realizadas
 para apoiar a construção do artefato computacional.
@@ -154,12 +112,6 @@ pesquisa pode ser uma estratégia para elucidar o processo e os fatores envolvid
 
 60
 
-c
-2018
-SBC — Soc. Bras. de Computação
-
-VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
-
 Cabe destacar, por fim, que o método DSR pode ser utilizado em conjunto com
 outras abordagens, técnicas e procedimentos. Seu foco é guiar pesquisas orientadas à
 solução de problemas e ao projeto de artefatos (DRESCH; LACERDA; ANTUNES JR,
@@ -177,37 +129,5 @@ limitações a serem exploradas. Como trabalho futuro coloca-se a possibilidade 
 análise mais ampla de trabalhos da CAS. Verifica-se, entretanto, o potencial de estudos
 desta natureza para auxiliar na popularização do método DSR, incentivando os
 pesquisadores a experimentá-lo e apresentar sua percepção à comunidade científica.
-
-Referências
-Bax, M. P. (2015) “Design science: filosofia da pesquisa em ciência da informação e
-tecnologia”. Disponível em: http://revista.ibict.br/ciinf/article/view/1388. Acesso em:
-Janeiro de 2018.
-Dresch, A.; Lacerda, D. P.; Antunes Jr., J. A. V. (2015) “Design science research:
-método de pesquisa para avanço da ciência e tecnologia”. Bookman, Porto
-Alegre/RS.
-Gregor, S.; Hevner, A. (2013) “Positioning and presenting design science research for
-maximum impact”. MIS Quarterly, v. 37.
-Hevner, A.; Chatterjee, S. (2010) “Design Research in Information Systems: Theory and
-Practice”. Springer US.
-
-Medeiros, A. G., et al. (2017) “Uma nova abordagem para a segmentação de pulmões
-utilizando o método de contorno ativo não paramétrico Optimum Path Snakes em
-imagens de tomografia computadorizada”. In: 17º WIM (Workshop de Informática
-Médica). São Paulo/SP.
-Neto, A. C. S., et al. (2017) “Desenvolvimento de descritores baseado em análise de
-forma para diagnóstico de lesões pulmonares”. In: 17º WIM (Workshop de
-Informática Médica). São Paulo/SP.
-Oliveira, M. C.; Lucena, D. J, F.; Felix, A. (2017) “Recuperação de Nódulos
-Pulmonares por Conteúdo: uma abordagem Radiomics em Pesquisa Reprodutível”.
-In: 17º WIM (Workshop de Informática Médica). São Paulo/SP.
-Pessanha, C. P.; Bax, M. P. (2016) “Implementando o prontuário eletrônico OpenEHR
-em Sistemas Gestores de Conteúdo: similitude entre arquétipos e conteúdos”. In:
-XVII Encontro Nacional de Pesquisa em Ciência da Informação (XVII ENANCIB).
-Salvador/BA.
-61
-
-c
-2018
-SBC — Soc. Bras. de Computação
 
 

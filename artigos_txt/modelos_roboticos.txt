@@ -12,11 +12,6 @@ Av. Eng. Gentil Tavares, 1166 - Getúlio Vargas, Aracaju - SE, 49055-260
 paulohenriqueifs@live.com,welerson.a.melo@gmail.com,icaro.santana.ifs@
 gmail.com,narastrappa@gmail.com,leila.buarque.couto.matos@gmail.com
 
-Abstract: This article describes the creation of new control methods of
-robotics models through a human-robot interface based on natural gestures,
-integrating the Arduino and Processing programmable platforms to Kinect
-and Bluetooth, enabling any person to control remotely the robot using body
-movements.
 Resumo: Este artigo descreve a criação de novos métodos de controle de
 modelos robóticos através de uma interface humano-robô baseada em gestos
 naturais, integrando a plataforma programável Arduino e Processing ao
@@ -44,9 +39,7 @@ quais se podem citar a Interface de Linha de Comando (CLI), a Interface Gráfica
 e a Interface Natural (NUI). Esta última é baseada em comandos realizados pelo corpo
 humano através de algum objeto ou diretamente pela captação dos gestos. A Interface
 
-732
 
-ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
 
 Natural Humano-Robô é uma importante função nos sistemas de operação robóticos
 (Kun Qian, et al., 2013), pois aumenta a interação entre o homem e a máquina.
@@ -93,9 +86,7 @@ No Método 3, para realizar o movimento de curva com o robô com rodas,
 obteve-se em relação ao eixo X (horizontal) e ao eixo Y (vertical) a diferença entre as
 duas mãos e assim foi calculado o coeficiente angular da reta imaginária formada entre
 
-733
 
-XXXVI Congresso da Sociedade Brasileira de Computação
 
 elas definindo para qual lado o robô deve virar e a aceleração centrípeta nas curvas. Já
 para o braço robótico utilizou-se a programação do Método 2 adaptada para responder o
@@ -127,9 +118,6 @@ A tarefa foi levar o Braço Robótico até o centro de um pneu pequeno, estendê
 arremessá-lo para o lado ao fechar a mão. O pneu distava vinte centímetros em relação à
 base do Braço Robótico e seis centímetros de altura.
 
-734
-
-ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
 
 Figura 3. Gráficos dos métodos de controle - Braço Robótico
 
@@ -150,23 +138,5 @@ implementados. Futuramente, visa-se o estudo de técnicas de filtragem e suaviza
 movimentos para os motores, sendo que a partir dos gráficos pôde-se perceber pequenos
 erros e oscilações indesejadas devido à baixa qualidade dos dados recebidos do Kinect.
 
-6. Referências
-CORREA, M. V. C. (2014). “Controle de robôs móveis utilizando o Kinect”. Escola de
-Engenharia de São Carlos da Universidade de São Paulo.
-Halim, S., Halim F. (2012). "Competitive Programming 2". Lulu Press.
-Jain, J., Lund, A., Wixon, D. (2011). The future of Natural User Interface. In: CHI '11
-Extended Abstracts on Human Factors in Computing Systems, pages 211-214.
-Melgar, E., Diez, C. (2012). “Arduino and Kinect Projects: Design, Blow Their Minds.”
-Technology in Action.
-Moreno, R. J. (2014). “Tracking Humano mediante Kinect para control de robots”.
-Universidad Autónoma de Colombia.
-Niu, J., Quian, R. and Yang, H. (2013). “Developing a Gesture Based Remote HumanRobot Interaction System Using Kinect”, In: “International Journal of Smart Home”.
-Ribeiro, L. C., Farias, Farias, A.B., Amaral, E.M.A. (2013) “Sistema De Controle De
-uma Plataforma Robótica Experimental Baseado em Visão Computacional
-Utilizando Kinect”, In: “Mostra Nacional de Robótica”.
-Zhang, Z. (2012) “Microsoft Kinect Sensor and Its Effect”, In: “IEEE Multimedia”,
-pages 4-10.
-
-735
 
 
