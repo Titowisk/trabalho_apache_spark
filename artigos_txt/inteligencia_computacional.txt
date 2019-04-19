@@ -1,0 +1,182 @@
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+Inteligência Computacional para Detecção de Arritmias e
+Anomalias Morfológicas Cardı́acas em Sinais de
+Eletrocardiograma
+Danilo A. Caldeira Silva1 , Vinicius T. Lino2 , Antonio L.P. Ribeiro3 ,
+Alessandro Beda, Antônio de P. Braga4
+1
+
+Graduação em Engenharia Elétrica – Universidade Federal de Minas Gerais
+Caixa Postal 15.064 – 91.501-970 – Belo Horizonte – MG – Brazil
+2
+
+Graduação em Engenharia de Controle e Automação
+Universidade Federal de Minas Gerais
+Caixa Postal 15.064 – 91.501-970 – Belo Horizonte – MG – Brazil
+3
+
+Hospital das Clı́nicas – UFMG
+Av. Professor Alfredo Balena, 110 - 1o Andar - Ala Sul - Sala 107
+30130-100 - Belo Horizonte - MG – Brazil
+4
+
+Departamento de Engenharia Eletrônica – UFMG
+Caixa Postal 15.064 – 91.501-970 – Belo Horizonte – MG – Brazil
+danilo.caldeira@yahoo.com, tom@hc.ufmg.br, {beda, apbraga}@ufmg.br
+
+Abstract. The Centro de Telessaúde’s chief service is the provision of Electrocardiograms (ECG) to remote regions of the state of Minas Gerais. The high
+daily volume of exams performed by the Centro demands the development of an
+automated ECG analysis system. This work focuses on selecting features among
+those extracted from the time-series associated with each ECG record in order to
+construct classifiers, whose outputs indicate the presence or absence of a given
+heart pathology in the patient under analysis. We use correlation rankings to
+select variables, and validate those choices by evaluating the performances of a
+number of Support Vector Machines constructed with those variables.
+Resumo. O principal serviço ofertado pelo Centro de Telessaúde de Minas
+Gerais é o Eletrocadiograma (ECG) em regiões remotas do estado. O volume
+diário de exames realizados pelo Centro demanda o desenvolvimento de um
+sistema automatizado de análise de ECGs. Este trabalho se concentra em selecionar variáveis, entre aquelas extraı́das das séries temporais correspondentes
+a cada traçado de ECG, para a construção de classificadores cujas respostas
+indiquem a presença ou ausência de determinadas patologias no paciente em
+análise. Utilizamos rankings de correlação para selecionar variáveis, e validamos estas escolhas avaliando o desempenho de um número de Máquinas de
+Vetor Suporte construı́dos com estas variáveis.
+
+1. Introdução
+O propósito do ECG, carro chefe do Centro de Telessaúde do Hospital das Clı́nicas
+da Universidade Federal de Minas Gerais, é detectar patologias cardı́acas – arritmias, defeitos de condução e anomalias morfológicas – analisando-se formas de ondas de tensão elétrica associadas aos ciclos de polarização e despolarização das células
+30
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+cardı́acas [et. al. 2010]. A interpretação destes exames demanda, portanto, alto grau de
+conhecimento técnico.
+O grande volume de ECGs diários recebidos pelo Centro, entretanto, inviabiliza a
+interpretação de cada exame por um humano, primeiro por uma questão de tempo hábil, e
+também devido aos riscos e custos associados à sobrecarga dos profissionais envolvidos.
+Este volume grande de exames pede, então, por um sistema automatizado de
+análise de ECG, que seja capaz de rápida e confiavelmente emitir laudos preliminares dos
+exames. Com o advento das técnicas de Inteligência Computacional, tornou-se possı́vel
+o projeto deste tipo de sistema.
+O objetivo do projeto do qual este trabalho faz parte é, portanto, construir um
+sistema automático de análise e interpretação de sinais de ECGs, utilizando técnicas de
+Inteligência Computacional, que será utilizado pelo Centro de Telessaúde do Hospital
+das Clı́nicas da Universidade Federal de Minas Gerais. Em especı́fico, neste trabalho
+selecionamos, dentre as variáveis extraı́das dos sinais de ECG, quais serão utilizadas para
+predizer a presença de cada patologia cardı́aca.
+
+2. Metodologia
+Compôs-se, para este trabalho, um dataset de 11.947 amostras de exames reais. Estas
+foram rotuladas de acordo com a presença de determinadas patologias-alvo, e são acompanhadas da indicação de caráter pediátrico ou adulto do paciente. Usamos as variáveis
+extraı́das segundo a metodologia descrita em [Lino 2017], além de variáveis extraı́das
+pelo sistema de Glasgow [et. al. 1990], inclunido a frequência cardı́aca, o eixo cardı́aco e
+a duração de certos segmentos da onda do ECG, totalizando 36 variáveis.
+Num problema de classificação, o qual corresponde a determinar a presença ou
+ausência de uma patologia-alvo, calculamos a correlação de Pearson, dada pela equação 1,
+de cada variável com o rótulo correspondente. Uma vez que não estamos interessados na
+direção da correlação, ordenamos as variáveis de acordo com a magnitude desta métrica,
+incialmente selecionando aquelas 5 variáveis que dela apresentarem os maiores valores,
+em seguida subtraindo ou adicionando variáveis iterativamente.
+
+
+C − µC
+X − µX
+ρ(X, C) = E
+×
+σx
+σC
+
+
+
+(1)
+
+Para cada seleção dentro de um problema, treinamos 100 Máquinas de Vetor Suporte (Support Vector Machine – SVM) [Vapnik and Cortes 1995], utilizando o pacote
+caret [Kuhn 2017] da linguagem R. Para cada treinamento, dividimos os dados aleatoriamente entre 70% para treinamento e 30% para teste, esperando que a divisão aleatória
+gere um conjunto de modelos diferentes cujo comportamento estatı́stico informe sobre o
+valor preditivo das variáveis. Configuramos a função de treinamento do caret para durante o treinamento de cada SVM, realizar validação cruzada com K = 5. Medimos o
+desempenho de cada SVM utilizando a área sob a curva ROC (AUC) computada pelo algoritmo de treinamento sobre o conjunto de validação cruzada, assim como as métricas de
+sensibilidade e especificidade computadas sob o conjunto de teste. Ao fim dos 100 treinamentos, utilizamos o resumo estatı́stico das métricas para julgar a escolha de variáveis
+como aceitável ou não.
+31
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+Devido ao desbalanço de classe observado em alguns dos problemas, foi
+necessário utilizar oversampling via SMOTE [Chawla et al. 2002], sem undersampling
+¯C
+da classe majoritária. Devido ao desbalanceamento, prestamos maior atenção à AU
+durante a avaliação de desempenho.
+
+3. Resultados
+Seguindo a metodologia descrita fomos capazes de selecionar conjuntos aceitáveis de
+variáveis para 13 problemas de classificação. A lista desses problemas, das variáveis
+escolhidas, assim como os valores das métricas obtidas nos classificadores preliminares,
+está mostrada na tabela 1. Em todos os problemas levamos em conta o discriminante
+entre paciente pediátrico versus adulto. Também nesta tabela indicamos se foi ou não
+necessário utilizar o SMOTE. A tabela 2 mostra resultados preliminares para outros 3
+problemas, nos quais fomos capazes de selecionar um conjunto razoavelmente aceitável
+de variáveis, mas cujos classificadores têm potencial de melhora de desempenho caso
+incluamos variáveis ainda não extraı́das da série temporal.
+Há, ainda, problemas para os quais não conseguimos selecionar variáveis dentre
+o conjunto de dados disponı́veis, seja por falta de amostras ou por falta de preditores
+adequados entre os 36 disponı́veis. Omitimos estes problemas por brevidade.
+Table 1. Problemas de classificação resolvidos, suas respectivas variáveis representativas, e métricas de desempenho calculadas.
+
+4. Conclusões e passos futuros
+Fomos capazes de selecionar as variáveis mais relevantes para 13 dos problemas de
+classificação. Os próximos passos envolverão, então, comparar as soluções baseadas em
+32
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+Table 2. Problemas de classificação parcialmente resolvidos, suas respectivas
+variáveis representativas, e métricas de desempenho calculadas.
+
+SVM com soluções baseadas em outros modelos, e.g. redes neurais.
+Para 3 dos problemas restantes fomos capazes de selecionar variáveis representativas dentro do conjunto disponı́vel, mas não pudemos declarar o desempenho dos classificadores como perfeitamente aceitáveis. Os próximos passos são, então, extrair mais
+variáveis definidas pela literatura médica [Party 1990].
+Houve pouca quantidade de amostras representativas de cada classe. Além disso,
+o desbalanceamento entre amostras positivas e negativas, devido às baixas taxas de incidência de cada patologia, afetaram o desempenho dos classificadores.
+Passos futuros incluem adquirir mais amostras rotuladas e encontrar modelos que
+lidem melhor com o desbalanço entre classes.
+Por fim, outros passos incluem implementar algoritmos rápidos e confiáveis de
+extração de variáveis, e integrá-los ao estágio de classificação de patologias, numa
+constelação de softwares que venham a compor o sistema completo de análise de ECGs.
+
+References
+Chawla, N. V., Bowyer, K. W., Hall, L. O., and Kegelmeyer, W. P. (2002). SMOTE: Synthetic Minority Over-sampling Technique. Journal of Artificial Intelligence Research,
+16(.).
+et. al., P. W. M. (1990). Methodology of ECG interpretation in the Glasgow program.
+Methods of Information in Medicine, 29(1):354–371.
+et. al., P. W. M. (2010). Comprehensive Electrocardiography. Springer-Verlag London,
+2nd edition.
+Kuhn, M. (2017). The caret packaget.
+Lino, V. (2017). Técnica de Extração de Parâmetros em Eletrocardiograma Para
+Classificação de Patologia. UFMG, - edition.
+Party, C. W. (1990). Recommendations for measurement standards in quantitative electrocardiography. European Heart Journal, 6(10):815–825.
+Vapnik, V. and Cortes, C. (1995).
+20(3):273–297.
+
+Support Vector Machines.
+
+33
+
+Machine Learning,
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+

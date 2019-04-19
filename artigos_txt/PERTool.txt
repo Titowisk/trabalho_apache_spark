@@ -1,0 +1,694 @@
+WEI - 24º Workshop sobre Educação em Computação
+
+PERTool - Uma Ferramenta Educacional para
+Manipulação de Redes PERT/CPM
+Paulo Henrique Lima Oliveira1, João Darcy T. Sant’Anna1,
+Flaviane Vicente T. Sant’Anna1, Diego Bevilaqua1,
+Ana Carolina G. Inocêncio1, Heitor Costa2, Paulo A. Parreira Júnior2
+1
+
+Instituto de Ciências Exatas - Universidade Federal de Goiás – Regional Jataí –
+Caixa Postal 03 – 75801-615 – Jataí-GO – Brasil
+2
+
+Departamento de Ciência da Computação - Universidade Federal de Lavras
+Caixa Postal 3.037 – 37.200-000 – Lavras – MG – Brasil
+
+{ph.lima.tecnico, diego.bevilaqua86, jdtsncomp, flaviane.vicente,
+anacarolina.inocencio}@gmail.com, {heitor, pauloa.junior}@dcc.ufla.br
+
+Abstract. Teachers, students and project managers related to computer
+science courses, engineering and related fields have reported difficulties in
+teaching and learning some content using some interactive features such as
+lectures based on books and presentations with slides, as well as costly
+replication of examples presented in class without the aid of computational
+tools. This article presents the PERTool, a digital educational tool that allows
+users to create and manipulate networks PERT / CPM, which is one of the
+issues addressed in disciplines such as Operations Research and Software
+Design. This technique is used to optimize cost and time schedules for the
+development of various types of projects.
+Resumo. Professores, estudantes e gerentes de projetos relacionados aos
+cursos de Ciência da Computação, Engenharias e áreas afins têm relatado
+dificuldades no ensino-aprendizagem de alguns conteúdos utilizando recursos
+pouco interativos como aulas expositivas baseada em livros e apresentações
+com slides, além da onerosa replicação dos exemplos apresentados em sala
+sem o auxílio de ferramentas computacionais. Este artigo apresenta a
+PERTool, uma ferramenta educacional digital que permite ao usuário criar e
+manipular redes PERT/CPM, a qual é um dos assuntos abordados em
+disciplinas como Pesquisa Operacional e Projeto de Software. Esta técnica é
+utilizada para otimizar cronogramas de tempo e custo durante o
+desenvolvimento de variados tipos de projetos.
+
+1. Introdução
+Redes PERT/CPM (Program Evaluation and Review Technique/Critical Path Method)
+são técnicas utilizadas para auxiliar no planejamento, no agendamento, no
+monitoramento e no controle das atividades de um projeto que estejam relacionados
+entre si [1]; esse conjunto de atividades é comumente conhecido como cronogramação
+[3]. No contexto de ensino na área de Computação, essas atividades são apresentadas
+em disciplinas relacionadas à Engenharia de Software; mais especificamente, quando o
+assunto é a construção e o acompanhamento de cronogramas de projetos de software. A
+
+2313
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+gerência de projetos é uma atividade essencial e complexa [4], pois o bom
+gerenciamento não garante o sucesso de um projeto, mas o mau gerenciamento aumenta
+significativamente as chances de um projeto falhar. Um projeto de sucesso é finalizado
+no prazo e no orçamento planejados, gerando um produto de qualidade com uma equipe
+motivada ao final do projeto [4].
+No âmbito do gerenciamento de projetos de software, muitas vezes a precisão
+nos cronogramas é mais importante do que a precisão nos custos, uma vez que o não
+cumprimento do cronograma pode [4]: (i) reduzir o impacto de um produto/serviço no
+mercado; (ii) provocar insatisfação dos clientes; e (iii) gerar problemas de integração
+entre sistemas. Por exemplo, uma equipe de meteorologistas brasileiros pode deixar de
+realizar experimentos em um período propício para observação da Amazônia, caso o
+software para análise das imagens de satélite não seja entregue até o mês de setembro,
+quando as chuvas e a nebulosidade na região diminuem [13]. Sendo assim, ressalta-se a
+importância do correto entendimento dos conceitos de cronogramação, em especial, das
+redes PERT/CPM, por parte dos alunos e futuros profissionais. Tal importância é
+corroborada pela incidência desse assunto em questões recentes das provas de avaliação
+de desempenho acadêmico no Brasil, como o ENADE (Exame Nacional de
+Desempenho de Estudantes) - provas de 2011 e de 2014 [11, 12].
+Uma ferramenta educacional digital é um conjunto de recursos computacionais
+projetados com a intenção de serem utilizados no contexto do processo de ensinoaprendizagem [2]. A simulação é um recurso utilizado por este tipo de software e
+consiste em atividades que colocam o aluno diante do computador como manipulador
+de situações que “imitam” ou aproximam-se do cenário real. O uso de ferramentas
+educacionais digitais pode trazer alguns benefícios para o processo de ensinoaprendizagem [5], como por exemplo:
+
+
+Os alunos podem relacionar de forma mais adequada o conteúdo teórico,
+aprendido nas disciplinas, com a prática;
+
+
+
+A interatividade proporcionada por esse tipo de ferramenta pode facilitar o
+aprendizado de conceitos relacionados a características dinâmicas e/ou abstratas
+de um sistema;
+
+
+
+A flexibilidade proporcionada por esse tipo de recurso educacional permite que
+os alunos testem novas entradas para determinado problema e vejam os
+resultados em tempo real, melhorando a interatividade entre aluno e conceito
+ensinado; e
+
+
+
+O aluno pode continuar estudando e experimentando novas configurações de
+entrada/saída para determinado problema fora do ambiente de sala de aula, o que
+não é tão simples de ser realizado com a utilização de outras ferramentas pouco
+interativas, tais como, livros-textos, apresentações de slides ou vídeo-aulas.
+
+Assim, neste trabalho, o objetivo é trazer os benefícios comentados
+anteriormente para a área de ensino de cronogramação. Para isso, foi desenvolvida uma
+ferramenta educacional para construção e manutenção de redes PERT/CPM,
+denominada PERTool. O diferencial oferecido por essa ferramenta é o seu enfoque
+educacional, haja vista que as demais ferramentas existentes para esse tipo de conteúdo
+[7, 8, 12], comentadas na Seção 3 deste trabalho, não possuem esse enfoque. Além
+
+2314
+
+WEI - 24º Workshop sobre Educação em Computação
+
+disso, outro aspecto que ressalta a importância da PERTool é o fato de ela ser opensource, uma vez que a maioria das ferramentas para se trabalhar com redes PERT/CPM
+são plug-ins para ferramentas proprietárias, tais como, MS Project. Por ser open-source,
+o acesso à PERTool por professores e por alunos é facilitado, bem como a contribuição
+de pesquisadores e desenvolvedores para seu aprimoramento.
+O restante deste trabalho está organizado da seguinte forma. Na Seção 2, são
+apresentados conceitos básicos sobre redes PERT/CPM. Na Seção 3, são descritos
+alguns trabalhos relacionados. Na Seção 4, é apresentada a ferramenta PERTool,
+descrevendo suas funções, Na Seção 5, são discutidos o planejamento e os resultados
+obtidos da avaliação realizada com alunos de graduação em computação sobre a
+ferramenta PERTool. Na Seção 6, estão presentes as considerações finais e sugestões
+de trabalhos futuros.
+
+2. Redes PERT/CPM
+Redes PERT/CPM são representações gráficas de um cronograma, nas quais são
+apresentadas a sequência lógica e as interdependências entre as tarefas desse
+cronograma. Essas redes são compostas por atividades e eventos [1] em um grafo
+orientado. Uma atividade compõe uma aresta do grafo, sendo a execução efetiva de uma
+operação, a qual representa o consumo de tempo e/ou recursos no projeto e possuem
+duração, podendo estar relacionadas com outras atividades. Um evento corresponde ao
+vértice do grafo, sendo um marco dentro da rede, representando o início e/ou o fim de
+uma atividade, e não consome tempo nem recursos em um projeto.
+Exemplos de atividades e eventos são apresentados na Figura 1 (todas as figuras
+apresentadas neste trabalho foram geradas com o auxílio da ferramenta PERTool). Por
+exemplo, a atividade “Pintar porta” é representada com uma seta (aresta direcionada)
+ligando dois eventos (dois nós), sendo o evento 1 o marco de início da atividade e o
+evento 2 o marco de fim da atividade. Pode haver dependências entre as atividades de
+uma rede PERT/CPM, como apresentado na Figura 2. Nesse caso, é possível perceber
+que a atividade “B” só poderá ser iniciada quando a atividade “A” for terminada, pois o
+evento 2, que corresponde ao início da atividade “B”, também é o evento final da
+atividade “A”. Nesse caso, diz-se que as atividades “A” e “B” são executadas
+sequencialmente.
+
+Figura 1 - Exemplo de uma
+Atividade e seu Evento Inicial e
+Final
+
+Figura 2 - Exemplo de
+Dependência entre Atividades
+
+Há atividades que podem ser executadas em paralelo, conforme apresentado na
+Figura 3. Nessa figura, as atividades “A” e “B” podem ser executadas ao mesmo tempo,
+pois existem duas setas saindo de um mesmo evento de início (evento 1), caracterizando
+o paralelismo entre elas. Além disso, há atividades chamadas “atividades fantasmas”,
+um tipo especial de atividade que não consome tempo nem recursos. Atividades
+fantasmas são representadas por uma linha pontilhada (Figura 4). Um dos casos em que
+
+2315
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+uma atividade fantasma deve ser utilizada é para mostrar a interdependência entre
+múltiplas atividades. Por exemplo, na Figura 4, a atividade “Café com leite” depende
+das atividades “Moer café” e “Comprar leite”, porém a atividade “Coalhada” depende
+apenas da atividade “Comprar leite”.
+Um caminho de uma rede PERT/CPM é uma rota que segue as setas do evento
+inicial ao evento final. O comprimento de um caminho é a soma das durações das
+atividades desta rota; nos exemplos das Figuras 1 à 4, a duração é apresentada abaixo do
+nome das atividades. O caminho com maior comprimento é denominado caminho
+crítico da rede, pois as atividades sobre esse caminho são críticas, ou seja, são as
+atividades que consomem a maior quantidade de recursos do projeto. O caminho crítico
+é representado nas figuras anteriores pelas linhas de cor laranja.
+
+Figura 3 - Exemplo de
+Atividades Executadas em
+Paralelo
+
+Figura 4 - Exemplo de
+interdependência entre Atividades
+
+Uma das características interessantes das redes PERT/CPM é o cálculo do tempo
+de execução. O tempo de execução de uma rede PERT/CPM está relacionado com os
+conceitos de tempo cedo, tempo tarde e folga. O tempo cedo é o tempo necessário
+para um evento ser atingido, sem atrasos. Para cada evento da rede, o tempo cedo é
+calculado por tempo cedo = máximo (tempo cedo do evento anterior + duração). O
+tempo tarde corresponde ao tempo limite para atingir um evento (deadline), de modo
+que não haja atrasos no projeto. Para cada evento da rede, o tempo tarde é calculado por
+tempo tarde = mínimo (tempo tarde do evento posterior - duração). A folga
+corresponde à diferença entre o tempo tarde e o tempo cedo e é calculada por folga =
+(tempo tarde - tempo cedo). As informações colocadas abaixo dos eventos nas redes das
+figuras anteriores descrevem o tempo cedo/tempo tarde/folga de cada evento,
+respectivamente.
+
+3. Trabalhos Relacionados
+Nesta seção, são descritas as principais ferramentas computacionais existentes na
+literatura, similares à PERTool, destacando-se seus pontos fortes e fracos.
+
+WBS Schedule Pro [7] é um sistema focado no planejamento e no
+gerenciamento de projetos. Com ele, podem ser tratados diversos conceitos para a
+concepção e o planejamento de projetos de software; dentre eles, estão as redes
+PERT/CPM. Inicialmente, esse sistema se chamava PERT Chart Expert, desenvolvido
+pela empresa Critical Tools [9]. O funcionamento do WBS Schedule Pro acontece por
+meio da integração do sistema com o MS Project. Algumas de suas limitações é que ele
+é um sistema proprietário (e pago) e não possui enfoque educacional.
+
+2316
+
+WEI - 24º Workshop sobre Educação em Computação
+
+ProjectLibre [12] é um projeto open-source disponibilizado de forma gratuita a
+seus usuários. Como uma de suas funções, podem ser manipuladas redes PERT/CPM.
+Por um lado, o seu enfoque é o gerenciamento de projetos; por outro lado, não há
+elementos educacionais que o tornam uma alternativa apropriada para ser utilizado em
+um ambiente de ensino.
+Visio PERT foi o outro software analisado [8], sendo este um projeto
+implementado pela empresa Microsoft em seu pacote Office. Com o Visio PERT, o
+usuário consegue organizar tarefas, estabelecer metas, construir e manipular
+graficamente redes PERT/CPM. Entretanto, esse software não realiza cálculos sobre o
+caminho crítico, tempo cedo, tempo tarde e folga das redes criadas e não possui foco
+educacional. Além disso, é dependente de um software proprietário (Microsoft Visio).
+Na Tabela 1, é apresentado um resumo das diferenças e das similaridades
+existentes entre a ferramenta PERTool e as demais analisadas nesta seção. Os critérios
+de comparação utilizados estão na segunda coluna. As demais colunas apresentam os
+resultados da comparação para cada ferramenta descrita anteriormente na ordem (A)
+WBS Schedule Pro, (B) ProjectLibre, (C) Visio PERT e (D) PERTool. Os símbolos
+“X” e “-” representam que uma ferramenta “atende” ou “não atende” determinado
+requisito, respectivamente. Além dos critérios, são apresentadas a portabilidade e a data
+da última atualização dessas ferramentas. Quanto à portabilidade, foram atribuídos os
+símbolos “L” para o sistema operacional Linux, “W” para o sistema operacional
+Windows e “M” para o sistema operacional Mac.
+Tabela 1 - Comparativo de Ferramentas para Manipulação de Redes PERT/CPM
+#
+
+Critério
+
+1 Aborda redes PERT/CPM
+Apresenta os cálculos para caminho crítico, tempo cedo, tempo tarde e
+2
+folga.
+3 É software livre
+4 Apresenta enfoque educacional
+5 Data da última atualização da ferramenta
+6 Plataformas suportadas pela ferramenta
+
+A
+X
+
+Ferramentas
+B
+C
+X
+X
+
+X
+
+X
+
+-
+
+2013
+W; M
+
+X
+2016
+L; W; M
+
+2013
+W; M
+
+D
+X
+X
+X
+X
+2016
+L; W; M
+
+De acordo com os dados apresentados na Tabela 1, nota-se que as ferramentas
+WBS Schedule Pro e VisioPERT estão obsoletas, visto que a data da última atualização
+foi há 3 anos (2013). Além disso, quanto à portabilidade das ferramentas analisadas,
+apenas a ProjectLibre e a PERTool oferecem suporte para o sistema operacional Linux,
+um sistema amplamente utilizado, principalmente no meio acadêmico. A ferramenta
+PERTool diferencia-se das demais analisadas por ser a única com enfoque educacional,
+cujos elementos são descritos na Seção 4. Além disso, é uma ferramenta especializada
+para construção e manutenção de redes PERT/CPM, está atualizada, é open-source e
+portável para as plataformas Linux, Windows e Mac, visto que é executada na máquina
+virtual Java (JVM - Java Virtual Machine).
+
+4. A Ferramenta PERTool
+
+Nesta seção, são descritas as principais funções existentes na ferramenta PERTool,
+destacando as diferenças entre os demais softwares analisados. Além disso, à medida
+que as funções são descritas, discussões a respeito dos benefícios educacionais que
+podem ser obtidos com a utilização dessa ferramenta são apresentados. É importante
+
+2317
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+ressaltar que PERTool pode ser obtida gratuitamente por meio de download e seu
+código
+está
+disponível
+em
+um
+repositório
+de
+acesso
+público:
+https://gitlab.com/joaodarcy/perttool.
+A internacionalização (internationalization - i18n) do conteúdo é uma
+característica positiva e importante da PERTool, pois a falta de material para estudo no
+idioma nativo do estudante pode tornar-se uma barreira para o entendimento do
+conteúdo abordado. Dessa forma, o aluno deve superar as barreiras naturais impostas
+pelo aprendizado e as barreiras linguísticas, a qual nem sempre é superada de forma
+fácil por todos. Apesar das demais ferramentas contemplarem essa característica, elas
+não possuem material didático sobre redes PERT/CPM internacionalizado. O recurso de
+i18n foi implementado na PERTool, disponibilizando rótulos na interface gráfica e
+material didático sobre redes PERT/CPM em três idiomas (Português, Inglês e
+Espanhol) (Figura 5 - A). No material didático disponível na PERTool, foram
+disponibilizados um tutorial sobre a técnica PERT/CPM, um manual de uso da
+ferramenta e um conjunto de três redes de exemplo (internacionalizadas). Essa
+característica é positiva, pois torna PERTool acessível a maior quantidade de pessoas,
+minimizando a barreira linguística como fator limitante ao aprendizado sobre os
+conceitos abordados.
+
+Figura 5 - Interface Gráfica da Ferramenta PERTool
+
+Em PERTool, são oferecidos recursos para auxiliar alunos e professores a
+criarem visualizações de redes PERT/CPM para utilização em trabalhos acadêmicos,
+slides, vídeo-aulas, entre outros. Para isso, em PERTool, é disponibilizada a função de
+exportação das redes criadas para imagens com formato PNG (Portable Network
+Graphics). Além disso, com a PERTool, os usuários podem salvar (armazenar
+persistentemente) seu trabalho em um arquivo com extensão .ptf, sendo interessante,
+pois permite ao usuário (i) continuar seu trabalho posteriormente; e (ii) compartilhar o
+seu projeto com outras pessoas, tornando o trabalho de construção de redes PERT/CPM
+colaborativo. As imagens utilizadas na Seção 2 deste artigo foram exportadas com
+PERTool.
+
+2318
+
+WEI - 24º Workshop sobre Educação em Computação
+
+Outro recurso importante na PERTool, não disponível nas demais ferramentas
+analisadas, é as legendas explicativas sobre os elementos gráficos de uma rede
+PERT/CPM (Figura 5 - B), as quais podem ser desabilitadas pelo usuário. Essas
+legendas contribuem de forma positiva do ponto de vista educacional, pois permitem ao
+usuário relembrar os principais conceitos durante a construção de suas redes.
+Realizar os cálculos de tempo da rede (tempo cedo, tempo tarde e folga)
+manualmente é um dos desafios ao se confeccionar uma rede PERT/CPM por ser
+onerosos e suscetíveis a falhas. Dessa forma, pode ser vantajoso utilizar PERTool,
+visto que esses cálculos são realizados automaticamente, à medida que usuário constrói
+sua rede (Figura 5 - C). Esse é um ponto positivo, pois o usuário consegue identificar
+quais são os gargalos e os atrasos, ao montar a sua rede e em tempo real. Na ferramenta
+PERTool, o caminho crítico da rede é calculado à medida em que a mesma é
+construída pelo usuário (setas de cor laranja da Figura 5 - C). Isto é interessante, pois o
+usuário consegue saber, visualmente, quais são os caminhos que consomem mais
+recursos, sendo uma informação valiosa no decorrer do projeto de software. Ao criar um
+cronograma de um projeto de software, deve-se começar com um conjunto de tarefas
+[4]. Se forem utilizadas ferramentas automáticas, a subdivisão do trabalho entra como
+uma rede ou resumo de tarefas. Dados de esforço, de duração e de data de início são
+definidos para cada tarefa. Além disso, as tarefas podem ser atribuídas a indivíduos
+específicos. Com base nessas informações, é gerado um gráfico de Gantt, utilizado para
+ilustrar as diferentes etapas de um projeto de software, permitindo uma análise do
+progresso conforme o tempo de execução do projeto. Esse gráfico pode ser exportado
+como uma imagem no formato PNG em PERTool.
+
+5. Avaliação e Resultados
+Nesta seção, é discutida a avaliação realizada com a ferramenta PERTool, descrevendo
+o método utilizado, os resultados obtidos e as análises feitas.
+
+5.1 Metodologia de Avaliação
+A avaliação de PERTool foi conduzida de acordo com um modelo de avaliação de
+jogos educacionais proposto por Savi et al. [15]. Uma das vantagens desse modelo é não
+consumir muito tempo em sua aplicação, uma vez que, em geral, não há tempo hábil
+para longas sessões de avaliações nas disciplinas. Com esse modelo, a ferramenta é
+avaliada para saber se: (i) consegue motivar os alunos a utilizarem o recurso como
+material de aprendizagem; (ii) proporciona boa experiência nos usuários; e (iii) gera
+percepção de utilidade educacional (se os alunos acham que a ferramenta é útil e sabem
+utilizá-la).
+Algumas adaptações foram realizadas neste modelo para adequá-lo ao contexto
+de uma ferramenta educacional. Algumas questões foram adaptadas/excluídas para a
+avaliação de PERTool, por tratarem de elementos específicos de jogos educacionais
+digitais, os quais não eram adequados ao contexto de ferramenta educacional. Para
+avaliação, foi proposto um questionário com o intuito de coletar dados dos entrevistados
+sobre os parâmetros que compõem o modelo de avaliação proposto por Savi [15]. O
+questionário é composto por 34 afirmações (Tabela 2), para as quais os participantes da
+avaliação deveriam indicar o quanto concordam com as mesmas, de acordo com uma
+escala Likert de 7 pontos variando de “discordo fortemente” a “concordo fortemente”.
+
+2319
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+Tabela 2 - Perguntas do Questionário de Avaliação
+#
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+
+Perguntas
+Houve algo interessante na ferramenta que capturou minha atenção.
+O design da ferramenta é atraente.
+Ficou claro para mim como o conteúdo da ferramenta está relacionado com coisas que eu sabia.
+Eu gostei tanto da ferramenta que gostaria de aprender mais sobre o assunto abordado por ela.
+O conteúdo abordado na ferramenta é relevante para meus interesses.
+Eu poderia relacionar o conteúdo do jogo com coisas que já vi, fiz ou pensei.
+O conteúdo abordado na ferramenta será útil para mim.
+A ferramenta foi mais fácil de entender do que eu imaginava.
+Foi fácil identificar e lembrar dos pontos importantes do conteúdo na ferramenta.
+O conteúdo da ferramenta foi exposto de forma tão interessante que foi difícil tirar a atenção dele.
+Eu consegui entender boa parcela do material da ferramenta.
+Realizar minhas tarefas na ferramenta me deu um sentimento de realização.
+Eu aprendi algumas coisas com a ferramenta positivamente surpreendentes ou inesperadas.
+Os textos de feedback ou outros comentários da ferramenta me ajudaram.
+Eu me senti bem ao completar minhas tarefas na ferramenta.
+Eu não percebi o tempo passar enquanto usava a ferramenta.
+Eu perdi a consciência do que estava ao meu redor enquanto usava a ferramenta.
+Eu me senti mais no ambiente da ferramenta do que no mundo real.
+Em nenhum momento, eu quis abandonar o uso da ferramenta.
+Eu me senti estimulado a aprender com a ferramenta.
+Eu gostei da ferramenta e não me senti ansioso ou entediado.
+A ferramenta me manteve motivado a continuar utilizando‐a.
+Minhas habilidades melhoraram gradualmente à medida que ia usando a ferramenta.
+Eu me senti bem-sucedido ao utilizar a ferramenta.
+Eu alcancei rapidamente meus objetivos com a ferramenta.
+Eu me senti competente.
+Eu senti que estava tendo progresso à medida que ia usando a ferramenta.
+Eu gostaria de utilizar esta ferramenta por mais tempo.
+Quando interrompido, fiquei desapontado, pois tive que parar de usar a ferramenta.
+Eu usaria esta ferramenta novamente.
+Há poucas coisas na ferramenta que me irritaram.
+Depois do uso da ferramenta, consigo lembrar de mais informações relacionadas ao tema
+apresentado nela.
+33 Depois do uso da ferramenta, consigo compreender melhor os temas apresentados nela.
+34 Depois do uso da ferramenta, sinto que consigo aplicar melhor os temas relacionados com nela.
+
+Categoria
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+A
+A
+A
+
+5.2 Análise dos Resultados
+A avaliação da ferramenta PERTool foi realizada por 18 alunos do curso Bacharelado
+em Ciências da Computação da Universidade Federal de Goiás - Regional Jataí
+(graduação incompleta). Os participantes cursavam a disciplina de Projeto de Software,
+os quais estudavam sobre cronogramação, incluindo redes PERT/CPM. Para essa
+avaliação, foi ministrado um treinamento em sala de aula para relembrar os conceitos
+sobre redes PERT/CPM e apresentar aos alunos as funções de PERTool. Durante a
+avaliação de PERTool, cada aluno a utilizou por cerca de 30 minutos, nos quais os
+alunos deveriam montar algumas redes PERT/CPM propostas pela equipe que conduziu
+o experimento. Em seguida, os alunos responderam ao questionário de avaliação
+apresentado na Tabela 2. Por questão de espaço, as respostas dadas pelos participantes
+foram omitidas, apresentando-se apenas os resultados por categoria (M - Motivação, E Experiência do Usuário e A - Aprendizagem). Contudo, a planilha completa com os
+resultados pode ser visualizada em https://goo.gl/vaydP5.
+As dimensões da categoria “Motivação” são Atenção (perguntas 1 e 2 da Tabela
+2), Relevância (perguntas 3 à 7), Confiança (perguntas 8 à 14) e Satisfação (perguntas
+12 à 15). De acordo com os resultados da Tabela 3, a avaliação mostrou que houve forte
+concordância por parte dos avaliadores com relação à Atenção (83,3%) e Confiança
+(88,9%). A Atenção refere-se às respostas cognitivas dos alunos a estímulos racionais. A
+
+2320
+
+WEI - 24º Workshop sobre Educação em Computação
+
+Confiança refere-se à criação de expectativas positivas nos alunos, ao proporcionar-lhes
+experiências de sucesso decorrentes de suas próprias habilidades e esforço [15]. Além
+disso, a avaliação mostrou também que Satisfação (69,4% das avaliações positivas) não
+obteve bons resultados quanto aos demais dessa categoria. Os alunos precisam ter
+sentimentos positivos sobre a experiência da aprendizagem e isso pode vir por meio de
+recompensas e reconhecimentos [15]. As propostas para melhorar os resultados desta
+dimensão podem vir com a gamificação, uma técnica que compreende a aplicação de
+elementos de jogos em atividades que não sejam jogos [14]. Por fim, a categoria
+“Motivação” obteve 80,9% de avaliações positivas, o que indica que o aluno se sente
+motivado ao utilizar a ferramenta educacional como auxilio para aprendizagem dos
+conteúdos sobre redes PERT/CPM.
+Tabela 3 - Média de Avaliações por Categoria
+CATEGORIAS / DIMENSÕES
+MOTIVAÇÃO
+MÉDIA
+
+Satisfação
+Relevância
+Confiança
+Atenção
+
+AVALIAÇÕES
+Positivas (5 até 7) Neutras (4 apenas) Negativas (1 até 3)
+69,4%
+16,7%
+13,9%
+81,1%
+10,0%
+8,9%
+88,9%
+8,3%
+2,8%
+83,3%
+13,9%
+2,8%
+80,7%
+12,2%
+7,1%
+
+EXPERIÊNCIA
+DO USUÁRIO
+
+Desafio
+Habilidade/Competência
+MÉDIA
+
+69,4%
+77,8%
+73,6%
+
+13,9%
+12,9%
+13,4%
+
+16,7%
+9,3%
+13%
+
+APRENDIZAGEM
+
+Aprendizagem
+
+74,1%
+
+20,4%
+
+5,7%
+
+A categoria “Experiência do Usuário” obteve, em média, 73,6% das avaliações
+positivas, tendo como pior resultado a dimensão Desafio (afirmações 21 à 31 da Tabela
+2), cujo valor foi de 69,4% de avaliações positivas. Esse resultado se deve ao fato de a
+mecânica dos jogos não estar aplicada à ferramenta PERTool. Para isso, como proposta
+de solução, também pode ser aplicada a gamificação para obter melhores resultados para
+essa categoria. Por fim, a categoria “Aprendizagem” obteve 74,1% das avaliações
+positivas, o que pode indicar a sedimentação dos conhecimentos do usuário utilizando
+PERTool.
+
+Além dessas questões, uma questão aberta foi disponibilizada para os
+avaliadores deixarem sua opinião sobre PERTool. Alguns desses comentários são “Ao
+aumentar o tamanho da fonte, deverá expandir também a distância dos eventos.”,
+“Quando tento ligar dois eventos sucessivos em duas atividades ele não permite sabendo
+que o ideal seria criar uma fantasma, por conta de já saber disso falta orientação do
+software do porque isso acontece, e porque não criar a atividade fantasma
+automaticamente?” e “A ferramenta poderia auto ajustar a rede pert conforme fosse
+aumentando o tamanho das letras para que não ficasse desproporcional.”.
+
+6. Considerações Finais
+Neste trabalho, foi apresentada a ferramenta educacional PERTool para manipulação
+de redes PERT/CPM, uma técnica utilizada quando se trata de gerenciamento de
+projetos de software. Com PERTool, o objetivo é auxiliar os alunos e os professores a
+conduzirem melhor seus estudos sobre esse assunto. Para constatar o alcance desse
+objetivo, uma avaliação com alunos de uma instituição federal de ensino superior foi
+realizada. Nessa avaliação, foi constatada que a PERTool obteve razoável avaliação
+
+2321
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+positiva, em que as categorias (Motivação, Experiência do Usuário e Aprendizagem)
+sugeridas por um modelo de avaliação alcançaram a pontuação 80,7%, 73,6% e 74,1%
+(Positivas - 5 a 7, na escala Likert). Por outro lado, propostas de melhorias foram
+detectadas com a opinião fornecida pelos avaliadores mediante resposta da questão
+aberta disponibilizada. Algumas dessas melhorias foram remetidas para sugestões de
+trabalhos futuros.
+Como trabalhos futuros, planeja-se duas novas principais funções: (i) repositório
+para redes de exemplo, em que usuários poderão compartilhar suas redes PERT/CPM
+criadas pela ferramenta PERTool, armazenando-as em um repositório online, o qual
+será mantido pela equipe de desenvolvimento. Dessa forma, outros usuários poderão
+encontrar essas redes compartilhadas e utilizá-las com o intuito de se obter novas ideias
+para criar suas próprias redes, tornando assim, o uso da PERTool colaborativo; e ii)
+criar mecanismos de ajuda para PERTool ferramenta para auxiliar o usuário enquanto
+ele a utiliza. Esse assistente pode ajudar o usuário com dicas ou com correção
+automática de erros, informando ao usuário qual erro ocorreu e como ele foi resolvido.
+Além disso, detectar possíveis erros e problemas de usabilidade da PERTool e corrigilos em uma próxima versão.
+
+7. Referências
+[1]
+[2]
+[3]
+
+[4]
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+
+[15]
+
+H. S. Swanson, R. E. D. Woolsey (1969), “A PERT-CPM Tutorial”
+Sancho, J. M (1998) “Para Uma Tecnologia Educacional”. Porto Alegre, Artmed.
+Lima, A et al. (2010) “Uma Ferramenta Baseada em Simulação Gráfica para Suporte ao
+Ensino de Redes de Computadores”. In Workshop de Educação em Informática BahiaAlagoas-Sergipe (WEIBASE).
+Sommerville, “Engenharia de Software”, 8ª edição, Editora Pearson.
+Judith S. Liebman, (1998) Teaching Operations Research: Lessons from Cognitive
+Psychology. Interfaces 28(2):104-110.
+Paas, F. G. W (1992) Training Strategies for Attaining Transfer of Problem-Solving Skill
+in Statistics: A Cognitive-Load Approach. Journal of Educational Psychology, Vol. 84,
+Nº. 4, 429-434.
+WBS Schedule Pro, Disponível em: http://www.criticaltools.com/download.html.
+Acessado em: Abril/15.
+Visio PERT, Disponível em: http://goo.gl/PVEhGf. Acessado em: Abril/15.
+Critical Tools, Disponível em: http://www.criticaltools.com/. Acessado em: Abril/15.
+INEP - Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira. ENADE
+2014. Disponível em: http://portal.inep.gov.br/web/guest/enade/provas-e-gabaritos-2014.
+Acessado em: Abril/15.
+INEP - Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira. ENADE
+2011. Disponível em: http://portal.inep.gov.br/web/guest/enade/provas-e-gabaritos-2011.
+Acessado em: Abril/15.
+ProjectLibre, Disponível em: http://sourceforge.net/projects/projectlibre/. Acessado em:
+Abril/15.
+Jornal O Globo. “Falta de software empaca dados de satélite brasileiro”. Disponível em:
+http://goo.gl/3koFCr. Acessado em: Abril/15.
+Fadel, Ulbricht, Batista, Vanzin, “Gamificação na educação” (2014), Editora Pimenta
+Cultural.
+Savi, R., Von Wangenheim, C. G., Ulbricht, V., and Vanzin, T. (2010) “Proposta de um
+Modelo de Avaliação de Jogos Educacionais”. In: RENOTE - Revista Novas Tecnologias
+na Educação, vol. 8, no. 3.
+
+2322
+
+

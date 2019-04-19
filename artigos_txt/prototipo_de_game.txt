@@ -1,0 +1,170 @@
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+Desenvolvimento de Protótipo de Game para Inserção no
+Ensino de Ciências
+Cleon X. Pereira Júnior1 , Zara Hoffmann1 ,
+Caroline P. Castro1 , Geovanna S. Santos1 , Thaı́s A. Aires1
+Instituto Federal Goiano (IF Goiano)
+Rua Rui Barbosa Qd 13 Lt. 1-A Setor Aeroporto – Campos Belos – GO – Brazil
+1
+
+Este trabalho teve apoio financeiro do PIPECTI / IF Goiano para apresentação.
+{cleon.junior,zara.hoffmann}@ifgoiano.edu.br
+
+Abstract. The use of Information and Communication Technologies in the educational environment indicates a possibility of educators and students exercise
+their own citizens through the use of technology. In this context, the development
+of diversified didactics actions which combine scientific knowledge to decisions
+taken on a day-to-day that stimulate significant approaches of understanding
+scientific knowledge, it becomes a possible alternative, both for the development of software systems and for the Science teaching. Within a development
+proposal of creativity and initiative, this work aims beyond the interdisciplinary
+interaction between software development areas with common base classes, it is
+also going to develop a technological prototype in a game format to be applied
+in Education Science. We intend apply to freshman students, who had presented
+a large gap of scientific content, after diagnosis survey.
+Resumo. O uso das Tecnologias da Informação e Comunicação no meio educacional aponta para uma possibilidade de professores e alunos exercerem sua
+própria cidadania por meio do uso das tecnologias. Neste contexto, o desenvolvimento de ações didáticas diversificadas que aliem saberes cientı́ficos às
+decisões tomadas no dia-a-dia que estimulem abordagens significativas para
+compreensão dos conhecimentos cientı́ficos, torna-se uma alternativa possı́vel,
+tanto para o desenvolvimento de sistemas de softwares quanto para o Ensino
+de Ciências. Dentro de uma proposta de desenvolvimento da criatividade e
+iniciativa este trabalho tem como objetivo além da interação interdisciplinar
+entre áreas de desenvolvimento de softwares com disciplinas da base comum,
+desenvolver um protótipo tecnológico em formato de jogo para ser aplicado no
+Ensino de Ciências. Pretende-se aplicar o protótipo entre os alunos ingressantes, os quais apresentaram grande defasagem de conteúdos cientı́ficos, após
+levantamento diagnóstico.
+
+1. Introdução
+O termo Tecnologia da Informação e Comunicação (TIC) é usado no contexto educacional para relacionar tanto a educação conectada à internet e seu aspecto social,
+quanto o uso educacional das tecnologias da informação e comunicação tais como a
+televisão, o computador e outras mı́dias digitais. Numa visão determinista, conforme
+
+700
+
+ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
+
+[Hato Sánchez and Vargas Lema 2013], tais tecnologias apontam para um conjunto de
+inovações tecnológicas e, seu conjunto de ferramentas, proporcionam uma redefinição radical do comportamento e funcionamento da sociedade contemporânea. Já na visão instrumentalista de [Castels and em Rede 1999], “a tecnologia não determina a sociedade;
+incorpora-a” visto que há um conjunto de fatores que intervêm nos processos societários,
+interativos e complexos, como a criatividade e a própria tecnologia. Esta forma de perceber a tecnologia considera-a um instrumento “neutro” utilizada com a finalidade de ter
+acesso ao conhecimento, também visto como neutro. A essa dualidade de pensamento
+[Peixoto and dos Santos Araújo 2012] descrevem como racionalidade instrumental: “um
+movimento que oscila entre a visão da tecnologia como ferramenta [..] e a atribuição
+à tecnologia o poder de configurar a cultura e a sociedade”, e é esta racionalidade que
+permeia os projetos pedagógicos de inserção das TICs nos meios educacionais.
+Nas relações entre escola e TIC, ao pensar de forma acrı́tica sobre as visões, tanto
+a determinista quanto a instrumentalista, corre-se o risco de acreditar que: 1 – prover a
+escola de aparatos tecnológicos, como computadores, tablets, lousa digital, entre outros,
+propiciará a inclusão digital dos alunos; 2 – ficar contra a inserção das TIC nas escolas, numa posição defensiva, protegerá os alunos e professores da desigualdade facilitada
+pelas TIC, e 3 – focar na capacitação a priori para uso das TIC, de fora para dentro da
+escola, pode excluir as possibilidades de apropriação dessas TIC de forma a impedir as
+mudanças escolares nas suas inadequações. Como deixa transparecer [BUZATO 2006] ao
+“conceber a tecnologia como ação social coletiva” é possı́vel identificar além das necessidades de infraestrutura e formação, as possibilidades de professores e alunos exercerem
+sua própria cidadania através do uso das tecnologias.
+Para uma prática educativa que atenda tanto os requisitos da Inclusão Digital
+quanto os Parâmetros Curriculares Nacionais para o Ensino Médio (PCNEM), pautada
+na interdisciplinaridade, contextualização e desenvolvimento de competências e habilidades, não é possı́vel que o professor se atenha ao livro didático apenas, o qual proporciona um entendimento periférico e fragmentado dos conhecimentos [SEMTEC 1999].
+Neste contexto, o Ensino Tecnológico pode contribuir na construção da cidadania, isto
+é, formar cidadãos capazes de participar criticamente na sociedade, através de uma proposta de ações didáticas inovadoras, com a incorporação das Tecnologias de Informação
+e Comunicação. Igualmente, entende-se que o Ensino de Ciências ainda é pautado por
+uma grande quantidade de conceitos teóricos e que a falta de metodologias alternativas
+voltadas para um aprendizado lúdico e motivador, dificulta o processo de aprendizagem,
+levando os alunos à memorização em nı́vel superficial. Numa proposta de estratégias
+motivacionais, dinâmicas e inovadoras, o uso de jogos educativos pode suprir a dificuldade de se ministrar aulas experimentais devido à falta de laboratórios. Porém, mais que
+o domı́nio das tecnologias, desenvolver nos alunos habilidades mentais e pessoais, tais
+como criatividade, iniciativa, espı́rito crı́tico e colaborativo, sociabilidade e capacidade
+de transformar informações que recebe em conhecimento útil [TIBÚRCIO 1997]. E é
+nesse sentido que este trabalho propõe o desenvolvimento de uma aplicação no formato
+de jogo para aprendizagem de conceitos de ciências naturais.
+
+2. Jogos no ensino de ciências
+Os jogos, ou elementos de jogos, estão inseridos cada vez mais no meio educacional,
+e é possı́vel encontrá-los para o ensino das mais diversas disciplinas. Para o ensino de
+
+701
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+ciências, [Li and Tsai 2013] apresentam uma revisão dos trabalhos mais relevantes que
+utilizam jogos ou estratégias de jogos. Na pesquisa é apontada que a partir de 2006
+houve um crescimento no uso de jogos para a aprendizagem. Os trabalhos levantados na
+pesquisa apontam os jogos para trabalhar conceitos, processos cientı́ficos, resolução de
+problemas, afetividade, engajamento ou aprendizagem contexto-social.
+Mais especı́fico para o ensino de quı́mica, existe uma gama de trabalhos que demonstram o uso de jogos para maior efetividade do ensino.
+[Boletsis and McCallum 2013] apresentam, através da realidade aumentada, um jogo colaborativo para o ensino da tabela periódica. Já [Capps 2008] apresenta o uso de um jogo
+de tabuleiro para o reforço dos conceitos básicos de quı́mica. Desta forma, é possı́vel
+ver que, de diferentes formas, os jogos vem crescendo para engajar mais o estudante na
+aprendizagem, tornando estratégias pedagógicas durante o ensino.
+
+3. O jogo - Os elementos quı́micos no meio ambiente
+O jogo, proposto aqui, tem como enredo a história de um garoto chamado Caio que está a
+caminho de casa, sendo que o mesmo deve chegar antes do sol se pôr. Durante o caminho,
+o jogador terá que resolver alguns problemas para permitir que o garoto prossiga. Por
+exemplo, para atravessar o primeiro obstáculo, o usuário terá que selecionar, dentre os
+compostos, qual deles representa a água. Respondendo corretamente, o lugar que era um
+vão, aparecerá um rio e permitirá que o mesmo atravesse, conforme apresentado na figura
+1. Outros desafios como o plantio de árvore para a sobrevivência (Relação do oxigênio
+com o gás carbônico), combustão do fogo para o aquecimento, etc, são apresentados
+permitindo que o jogador enxergue os elementos quı́micos presentes na natureza.
+
+Figura 1. Personagem em frente ao obstáculo; o desafio para atravessá-lo; Desafio cumprido
+
+Caracterizado como uma pesquisa qualitativa, este trabalho vem sendo desenvolvido com a utilização de diversas estratégias de investigação. A princı́pio foram utilizados
+dados da avaliação diagnóstica efetuada pelos professores com alunos ingressantes, com
+a finalidade de detectar suas dificuldades especı́ficas. Esta investigação permitiu determinar o nı́vel de conteúdo cientı́fico a ser trabalhado no jogo, sendo a quı́mica e a educação
+ambiental escolhido como foco principal.
+O jogo é dividido em fases, onde os acertos permitem que o estudante prossiga e
+os erros fazem com que o mesmo sofra uma penalidade, perdendo uma porcentagem da
+vida. Desta forma, acredita-se que o estudante terá uma oportunidade a mais de revisar os
+conceitos básicos de quı́mica e associá-los no meio ambiente entendendo a necessidade
+dos elementos.
+
+702
+
+ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
+
+Para o desenvolvimento do jogo foi utilizado o Game Maker Studio 1 pela facilidade na criação de cenários e possibilidades geradas pelo mesmo. A documentação foi
+baseada no padrão de jogos, o Game Design. Durante o desenvolvimento foram utilizadas
+estratégias de engenharia de software, como testes de caixa preta na verificação de erros
+ou inconsistências.
+
+4. Considerações Finais
+Este trabalho apresentou uma estratégia, utilizando um protótipo de game, para o ensino
+de quı́mica e educação ambiental. Espera-se que, desta forma, os estudantes tenham
+a possibilidade de aprender ou revisar os conteúdos básicos de quı́mica de uma forma
+divertida, contextualizando e entendendo a necessidade dos compostos no meio ambiente.
+Como próxima etapa, haverá uma aplicação do protótipo em turmas iniciantes do
+ensino médio no Instituto federal, procurando assim, enriquecer mais os conhecimentos
+cientı́ficos, onde os mesmos apresentam uma grande defasagem. Espera-se, ainda como
+continuação deste trabalho, uma melhoria na interface do jogo, enriquecendo com elementos e animações que levem a concentração do jogador. Também espera-se criar novos
+enredos com objetivos distintos para aprimorar ainda mais o conhecimento dos usuários.
+
+Referências
+Boletsis, C. and McCallum, S. (2013). The table mystery: An augmented reality collaborative game for chemistry education. In Serious Games Development and Applications,
+pages 86–95. Springer.
+BUZATO, M. E. K. (2006). Letramentos digitais e formação de professores. In III Congresso Ibero-Americano EducaRede, volume 29.
+Capps, K. (2008). Chemistry taboo: An active learning game for the general chemistry
+classroom. Journal of chemical education, 85(4):518.
+Castels, M. and em Rede, A. S. (1999). A era da informação: economia, sociedade e
+cultura. São Paulo: Paz e Terra, 3.
+Hato Sánchez, M. A. and Vargas Lema, S. T. (2013). El uso de las tics como instrumento
+pedagógico en el proceso educativo de los estudiantes de bachillerato en quı́mico
+biólogo del i.t.s. república del ecuador durante el año lectivo 2011-2012.
+Li, M.-C. and Tsai, C.-C. (2013). Game-based learning in science education: a review of
+relevant research. Journal of Science Education and Technology, 22(6):877–898.
+Peixoto, J. and dos Santos Araújo, C. H. (2012). Tecnologia e educação: algumas
+considerações sobre o discurso pedagógico contemporâneo. Educação & Sociedade,
+33(118):253–268.
+SEMTEC, M. (1999). Parâmetros curriculares nacionais para o ensino médio. Brası́lia:
+Secretaria de Educação Média e Tecnologia.
+TIBÚRCIO, C. (1997). Guia de informática e internet para a educação brasileira. São
+Paulo.
+1
+
+Game Maker Studio:
+http://yoyogames.com/
+
+Motor de jogo com suporte à linguagem GML, disponı́vel em
+
+703
+
+

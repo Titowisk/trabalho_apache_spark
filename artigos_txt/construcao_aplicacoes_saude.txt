@@ -1,0 +1,213 @@
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+Construção de aplicações computacionais na saúde:
+explorando a abordagem Design Science Research
+Nicole C. Davila, Adriana N. dos Reis
+Instituto de Ciências Exatas e Tecnológicas – Universidade Feevale
+ERS-239, 2755 – 93525-075 – Novo Hamburgo – RS – Brasil
+{nicoledavilaa,adriana.anreis}@gmail.com
+
+Resumo. Este artigo apresenta uma pesquisa exploratória sobre a construção
+de aplicações computacionais na saúde. O objetivo é avaliar estudos da área
+a partir da perspectiva do método Design Science Research, uma abordagem
+que contempla o desenvolvimento de artefatos no processo científico. O estudo
+considera publicações do 17º Workshop de Informática Médica (2017),
+analisando os elementos apresentados sob a perspectiva do método citado. Os
+resultados indicam que a abordagem pode contribuir para incrementar a
+consistência e rigor dos trabalhos da área de computação aplicada à saúde.
+Abstract. This paper presents an exploratory research about the construction
+of computational applications in health. The goal is evaluate studies in this
+field from the perspective of the Design Science Research, an approach that
+involves design and development of artifacts in scientific process. The study
+considers publications of the 17th Workshop of Medical Informatics (2017),
+analyzing elements presented from the perspective of the mentioned method.
+The results indicate that the approach can contribute to increase the
+consistency and accuracy of the computational work applied to health.
+
+1. Introdução
+Pesquisas científicas na área de Computação Aplicada à Saúde (CAS) envolvem
+tecnologia e inovação, apresentando o desenvolvimento de algoritmos, aplicações e
+outras soluções para resolver problemas de pessoas e organizações da saúde. Essas
+características podem ser observadas em trabalhos publicados na Escola Regional de
+Computação Aplicada à Saúde (ERCAS) e no Workshop de Informática Médica (WIM),
+eventos apoiados pela Sociedade Brasileira de Computação (SBC).
+Neste contexto, entretanto, o que diferencia uma aplicação computacional
+desenvolvida por pesquisadores daquela construída comercialmente? Ambas visam
+auxiliar o diagnóstico médico, então a questão destaca o papel da metodologia científica
+na construção de soluções computacionais. Na pesquisa temos um processo que
+contribui para o avanço do estado da arte de um domínio, fundamentado no
+conhecimento existente. A diferença entre as aplicações citadas, portanto, é o caminho
+percorrido por quem as construiu e suas contribuições para o meio.
+Um paradigma emergente no cenário da metodologia de pesquisa é o método
+Design Science Research (DSR). Sua essência é servir de aporte a investigações que
+trabalham com a criação ou prescrição de artefatos. Esses estudos não são atendidos de
+58
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+forma satisfatória pelas ciências sociais e naturais, pois nesses casos o foco central é
+explorar, descrever ou explicar algo. Na área de CAS é possível encontrar pesquisas que
+já utilizaram a DSR com sucesso (PESSANHA; BAX, 2016).
+A proposta deste artigo é explorar a construção de aplicações computacionais na
+saúde, utilizando como referência trabalhos completos do 17º WIM, evento de 2017. O
+objetivo é verificar aspectos metodológicos destes estudos e analisá-los a partir da
+abordagem DSR. A hipótese construída é que tal método pode servir como aporte
+metodológico consistente às pesquisas da CAS, contribuindo para incrementar a
+relevância prática e rigor dos trabalhos.
+A próxima seção reúne a base de informações utilizada no estudo, seguida pela
+análise das publicações selecionadas a partir da abordagem DSR, na seção 3. Por fim, na
+seção 4 constam as considerações finais.
+
+2. Base de informações para análise
+A 17º edição do WIM apresentou 38 artigos, sendo 23 trabalhos completos. Deste grupo
+foram selecionadas três publicações para o desenvolvimento inicial desta pesquisa,
+sendo todos os estudos relacionados a processamento digital de imagens pulmonares,
+um dos temas mais frequentes do evento. O acesso aos textos foi realizado pela
+Biblioteca Digital Brasileira de Computação (BDBComp).
+Após a seleção, foram estabelecidos cinco aspectos para verificar os trabalhos.
+Adaptados do esquema de publicação de Gregor e Hevner (2013), cada item selecionado
+foi analisado em dois estados possíveis: consta ou não consta na publicação. No Quadro
+1 foi utilizado um “X” para sinalizar quando um elemento está presente no trabalho.
+Quadro 1. Trabalhos do 17º WIM selecionados para análise
+Elementos do artigo
+Introdução ao problema, motivação e escopo
+Revisão da literatura
+Método, abordagem de pesquisa empregada
+Discussão sobre os resultados
+Conclusões, retomar pontos relevantes
+
+Medeiros et al.
+(2017)
+X
+X
+
+Neto et al.
+(2017)
+X
+X
+
+Oliveira, Lucena
+e Felix (2017)
+X
+
+X
+X
+
+X
+X
+
+X
+X
+
+Além dos aspectos citados, é possível extrair algumas características gerais da
+seleção: os problemas de pesquisa têm caráter prático (identificar problemas
+pulmonares); as soluções apoiam-se em técnicas com fundamentação teórica
+(segmentação e extração de características, por exemplo); as contribuições são
+fundamentadas em determinados critérios (acurácia, sensibilidade, entre outros).
+Considerando as informações identificadas, este trabalho realiza uma análise a partir da
+abordagem DSR. Os resultados parciais são apresentados na próxima seção.
+
+3. Análise a partir da abordagem DSR
+Bax (2015) considera que faz muitas décadas que as pesquisas da computação são
+desenvolvidas ao estilo DSR sem referenciá-la, o que não reduz a qualidade dessas
+investigações. O método de pesquisa, por sua vez, facilita que ações sejam reconhecidas
+pela comunidade científica. Como apresentado no Quadro 1, a metodologia utilizada nas
+publicações selecionadas não é destacada. Neste sentido, adotar o método DSR pode
+59
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+evidenciar o paradigma base da investigação e, consequentemente, as ações realizadas
+para apoiar a construção do artefato computacional.
+No que tange a relação entre a prática e a teoria, Hevner e Chatterjee (2010)
+propõem uma representação do método DSR em três ciclos: relevância, no qual o
+pesquisador buscará informações do problema; design, destinado desenvolvimento e
+avaliação do artefato; e rigor, no qual se busca a fundamentação teórica e destacam-se as
+contribuições do estudo. A Figura 1 ilustra os ciclos citados.
+
+Figura 1. Ciclos do DSR adaptado de Hevner e Chatterjee (2010)
+
+Uma possibilidade que pode ser explorada para auxiliar a preencher a lacuna
+metodológica da construção de artefatos computacionais é o uso dos ciclos na
+apresentação de como a computação e a saúde se aproximam. Na Figura 2 é proposta
+essa relação. Retoma-se ainda a questão apresentada na seção inicial sobre o que
+diferencia soluções computacionais da área estudada.
+
+Figura 2. Ciclos do DSR e a pesquisa na computação aplicada à saúde
+
+Como é possível observar na Figura 2, o ambiente do problema proporciona os
+requisitos das soluções, pois nele estão as partes interessadas, como médicos e
+enfermeiros. Este contexto, portanto, pode auxiliar a estabelecer critérios para a
+utilidade dos artefatos computacionais, promovendo a relevância prática. Assim, quando
+os trabalhos avaliam acurácia e sensibilidade de uma nova técnica, por exemplo, há
+alguém da saúde interessado nos resultados. Essa relação, entretanto, muitas vezes não é
+explicitada, o que torna vago o alcance dos esforços. Neste sentido, o método de
+pesquisa pode ser uma estratégia para elucidar o processo e os fatores envolvidos.
+
+60
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+VI Escola Regional de Computação Aplicada à Saúde — ERCAS-RJ 2018
+
+Cabe destacar, por fim, que o método DSR pode ser utilizado em conjunto com
+outras abordagens, técnicas e procedimentos. Seu foco é guiar pesquisas orientadas à
+solução de problemas e ao projeto de artefatos (DRESCH; LACERDA; ANTUNES JR,
+2015). Assim, é uma opção válida para os trabalhos selecionados, uma vez que as
+propostas visam resolver problemas práticos de diagnóstico médico.
+
+4. Considerações finais
+Este trabalho se propõe a explorar a construção de aplicações da CAS, analisando
+aspectos de publicações do 17º WIM a partir da abordagem DSR. Com uma ampla base
+teórica, este método se ocupa de apoiar as pesquisas orientadas à solução de problemas
+práticos, realidade da área. Torna-se promissor, portanto, explorar seu uso na construção
+destas investigações com o propósito de ressaltar a consistência e o rigor.
+Ainda em estado inicial, este trabalho apresenta resultados preliminares e
+limitações a serem exploradas. Como trabalho futuro coloca-se a possibilidade de uma
+análise mais ampla de trabalhos da CAS. Verifica-se, entretanto, o potencial de estudos
+desta natureza para auxiliar na popularização do método DSR, incentivando os
+pesquisadores a experimentá-lo e apresentar sua percepção à comunidade científica.
+
+Referências
+Bax, M. P. (2015) “Design science: filosofia da pesquisa em ciência da informação e
+tecnologia”. Disponível em: http://revista.ibict.br/ciinf/article/view/1388. Acesso em:
+Janeiro de 2018.
+Dresch, A.; Lacerda, D. P.; Antunes Jr., J. A. V. (2015) “Design science research:
+método de pesquisa para avanço da ciência e tecnologia”. Bookman, Porto
+Alegre/RS.
+Gregor, S.; Hevner, A. (2013) “Positioning and presenting design science research for
+maximum impact”. MIS Quarterly, v. 37.
+Hevner, A.; Chatterjee, S. (2010) “Design Research in Information Systems: Theory and
+Practice”. Springer US.
+
+Medeiros, A. G., et al. (2017) “Uma nova abordagem para a segmentação de pulmões
+utilizando o método de contorno ativo não paramétrico Optimum Path Snakes em
+imagens de tomografia computadorizada”. In: 17º WIM (Workshop de Informática
+Médica). São Paulo/SP.
+Neto, A. C. S., et al. (2017) “Desenvolvimento de descritores baseado em análise de
+forma para diagnóstico de lesões pulmonares”. In: 17º WIM (Workshop de
+Informática Médica). São Paulo/SP.
+Oliveira, M. C.; Lucena, D. J, F.; Felix, A. (2017) “Recuperação de Nódulos
+Pulmonares por Conteúdo: uma abordagem Radiomics em Pesquisa Reprodutível”.
+In: 17º WIM (Workshop de Informática Médica). São Paulo/SP.
+Pessanha, C. P.; Bax, M. P. (2016) “Implementando o prontuário eletrônico OpenEHR
+em Sistemas Gestores de Conteúdo: similitude entre arquétipos e conteúdos”. In:
+XVII Encontro Nacional de Pesquisa em Ciência da Informação (XVII ENANCIB).
+Salvador/BA.
+61
+
+c
+2018
+SBC — Soc. Bras. de Computação
+
+

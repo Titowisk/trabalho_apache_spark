@@ -1,0 +1,172 @@
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+Controle de Modelos Robóticos por Meio de Gestos
+Naturais
+Paulo Henrique R. de Souza¹, Welerson Augusto L. de Jesus Melo¹, Icaro
+Meneses F. de Santana², Nara Strappa F. Doria³, Leila Buarque C. de
+Matos³
+¹Discente do Curso Técnico Integrado Informática ao Ensino Médio, ²Discente do Curso
+Técnico Integrado Eletrônica ao Ensino Médio, ³Docente de Eletrônica
+¹²³Instituto Federal de Educação, Ciência, Tecnologia de Sergipe (IFS)
+Av. Eng. Gentil Tavares, 1166 - Getúlio Vargas, Aracaju - SE, 49055-260
+paulohenriqueifs@live.com,welerson.a.melo@gmail.com,icaro.santana.ifs@
+gmail.com,narastrappa@gmail.com,leila.buarque.couto.matos@gmail.com
+
+Abstract: This article describes the creation of new control methods of
+robotics models through a human-robot interface based on natural gestures,
+integrating the Arduino and Processing programmable platforms to Kinect
+and Bluetooth, enabling any person to control remotely the robot using body
+movements.
+Resumo: Este artigo descreve a criação de novos métodos de controle de
+modelos robóticos através de uma interface humano-robô baseada em gestos
+naturais, integrando a plataforma programável Arduino e Processing ao
+Bluetooth e Kinect, possibilitando a qualquer pessoa controlar um robô
+remotamente usando movimentos do corpo.
+
+1. Introdução
+Com a crescente popularização dos modos de interação homem-máquina através da
+interface natural, foi notável a necessidade de um olhar diferente para essa área de modo
+que ela possa ser aproveitada ao máximo. O Kinect surge então como grande precursor
+dessa interface, que segundo Jain et al. (2011), é a forma que permite que os usuários
+interajam com os computadores da maneira que interagem com o mundo.
+Nesse contexto, propõe-se criar novas formas de controle de robôs a partir da
+interface humano-robô baseada em gestos naturais, integrando a plataforma
+programável Arduino ao Kinect, possibilitando a qualquer pessoa controlar um robô
+remotamente usando movimentos comuns do corpo. O restante deste artigo está
+estruturado como segue: na Seção 2, é apresentado o referencial teórico, enquanto na
+Seção 3 é resumida a proposta, os materiais utilizados e a implementação. Os resultados
+obtidos são apresentados na Seção 4 e, por último, na Seção 5 são feitas algumas
+considerações finais.
+
+2. Referencial Teórico
+No mundo da tecnologia há diversos tipos de integração homem-máquina, dentre as
+quais se podem citar a Interface de Linha de Comando (CLI), a Interface Gráfica (GUI)
+e a Interface Natural (NUI). Esta última é baseada em comandos realizados pelo corpo
+humano através de algum objeto ou diretamente pela captação dos gestos. A Interface
+
+732
+
+ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
+
+Natural Humano-Robô é uma importante função nos sistemas de operação robóticos
+(Kun Qian, et al., 2013), pois aumenta a interação entre o homem e a máquina.
+Pensando na abrangência de uma nova tecnologia com Interface Natural, a
+Microsoft desenvolveu o dispositivo Kinect. Este dispositivo tem mudado a forma como
+as pessoas integram-se à tecnologia, e seu impacto vai além da indústria de games, com
+um baixo custo e fácil aquisição. Segundo Zhengyou Zhang (2012) muitas pesquisas
+vêm sendo realizadas na área da ciência e engenharia, automação (Moreno, 2014) e
+saúde.
+
+3. Aplicação
+A partir do exposto, viu-se a oportunidade de conectar a tecnologia do Kinect à robótica
+utilizando comunicação sem fio, a fim de criar novos métodos remotos de controle de
+robôs. Para o projeto, foi desenvolvido um robô móvel com rodas que possuía dois
+motores DC, um chassi, um Arduino Uno, Chip L293D, Módulo Bluetooth e baterias.
+Além disso, foi criado um braço robótico de ferro com três servomotores simulando os
+movimentos do ombro, cotovelo e mão humana. No que se refere à Programação
+Orientada a Objetos, optou-se pelo uso da IDE Processing.
+Quatro métodos de controle foram criados para o sistema, sendo um pelo teclado
+e os outros três pelo Kinect, que detecta automaticamente o corpo do usuário se este
+estiver devidamente posicionado à frente do dispositivo, tanto em pé como sentado.
+No Método 0, o usuário utiliza o teclado para movimentar o robô. O Método 1
+capta o ponto mais próximo da tela para mover os motores sem variação de aceleração
+(Ribeiro et al., 2013). Já o Método 2 utiliza a angulação formada entre os ombros e
+cotovelos para mover os motores com variação de aceleração (Correa, Marcos Vinicius,
+2014). O Método 3, o novo modo criado, simula um volante, através da angulação
+formada por uma linha imaginária entre as mãos e a distância das mãos ao corpo para
+mover os motores com variação de aceleração. Os métodos 0 e 2 são utilizados tanto no
+robô com rodas como no braço robótico.
+Enfim, os dados gerados a partir da movimentação do usuário são tratados e
+transformados de acordo com a programação do método utilizado e enviados em tempo
+real e via Bluetooth ao Arduino, que lê os dados e escreve as potências de cada motor de
+acordo com as entradas. A diferença entre o tempo de resposta nos diferentes métodos
+foi desconsiderada neste trabalho por ser um valor muito pequeno.
+3.1 Implementação
+Integrando as bibliotecas open source OpenNI e Nite2.0, (Melgar e Diez, 2012) foi
+possível detectar o posicionamento dos membros e retornar as coordenadas no campo
+3D dos pés, joelhos, mãos, cotovelos e ombros. Os dados das coordenadas que podem
+vir com ruídos são tratados com média móvel e ligados para criar a imagem do
+esqueleto do humano que é sobreposta à sua imagem real. Precisou-se detectar o estado
+da mão do usuário (aberta ou fechada) e então foi implementado o algoritmo Flood Fill
+que age pelas conexões de pontos em um grafo (Felix e Steven Halim, 2012).
+No Método 3, para realizar o movimento de curva com o robô com rodas,
+obteve-se em relação ao eixo X (horizontal) e ao eixo Y (vertical) a diferença entre as
+duas mãos e assim foi calculado o coeficiente angular da reta imaginária formada entre
+
+733
+
+XXXVI Congresso da Sociedade Brasileira de Computação
+
+elas definindo para qual lado o robô deve virar e a aceleração centrípeta nas curvas. Já
+para o braço robótico utilizou-se a programação do Método 2 adaptada para responder o
+mais próximo possível da posição real do braço do usuário.
+
+4. Resultados
+Foram realizados testes de laboratório com alguns voluntários a fim de melhorar a
+aplicação, avaliar a aceitação e gerar gráficos. A Figura 1 mostra a tela com os dados de
+potência linear (centro da tela), a proporção entre as potências nos motores (canto
+esquerdo da tela) e o estado das mãos, necessário para estar no controle do sistema.
+
+Figura 1. Voluntário utilizando o Sistema no Método 3.
+
+Tomando o Método 0 e o Método 3 no robô com rodas, foram gerados gráficos
+que mostram a diferença entre os dois métodos numa trajetória que se definiu por
+variações em uma pista que apresentava curvas para a direita e esquerda. A pista
+possuía dois metros de comprimento por um metro de largura. Os dados apresentados
+nos gráficos fazem referência à proporção entre os motores, indicando qual lado está
+recebendo a maior potência. Ou seja, quanto mais baixo maior a curva para a direita.
+
+Figura 2. Gráficos dos métodos de controle - Robô com rodas
+
+O gráfico da Figura 2, gerado a partir de amostras, apresenta no eixo horizontal
+os dados de tempo em milissegundos e no eixo vertical a diferença proporcional de
+potência entre os motores. Pode-se perceber a maior suavização do movimento com o
+Kinect. Vemos de modo semelhante nos gráficos da Figura 3 os resultados do Método 0
+utilizando o teclado e do Método 2 utilizando o Kinect para controle do braço robótico.
+A tarefa foi levar o Braço Robótico até o centro de um pneu pequeno, estendê-lo e
+arremessá-lo para o lado ao fechar a mão. O pneu distava vinte centímetros em relação à
+base do Braço Robótico e seis centímetros de altura.
+
+734
+
+ENCompIF - 3º Encontro Nacional de Computação dos Institutos Federais
+
+Figura 3. Gráficos dos métodos de controle - Braço Robótico
+
+No gráfico acima, o Motor A representa a articulação do ombro, o Motor B a
+articulação do cotovelo; o Motor C, a abertura da mão. É possível observar a partir das
+amostras que o método utilizando o Kinect terminou a tarefa aproximadamente duas
+vezes mais rápido, além de possuir maior suavização dos movimentos articulares e um
+controle mais intuitivo. Os resultados podem ser vistos nos vídeos:
+https://youtu.be/4iPneecyNJ4 e https://youtu.be/6AezSTYSE00.
+
+5. Conclusão e trabalhos futuros
+Tendo em vista que a Interface Natural aplicada à robótica tem um grande potencial de
+desenvolvimento no mundo, o projeto utilizou uma metodologia simples para conectar
+tecnologias e alcançar o resultado desejado. Foi possível controlar de forma remota um
+robô com rodas e um braço robótico utilizando o próprio corpo, demonstrando maior
+eficácia no principal método proposto em relação aos métodos já existentes
+implementados. Futuramente, visa-se o estudo de técnicas de filtragem e suavização de
+movimentos para os motores, sendo que a partir dos gráficos pôde-se perceber pequenos
+erros e oscilações indesejadas devido à baixa qualidade dos dados recebidos do Kinect.
+
+6. Referências
+CORREA, M. V. C. (2014). “Controle de robôs móveis utilizando o Kinect”. Escola de
+Engenharia de São Carlos da Universidade de São Paulo.
+Halim, S., Halim F. (2012). "Competitive Programming 2". Lulu Press.
+Jain, J., Lund, A., Wixon, D. (2011). The future of Natural User Interface. In: CHI '11
+Extended Abstracts on Human Factors in Computing Systems, pages 211-214.
+Melgar, E., Diez, C. (2012). “Arduino and Kinect Projects: Design, Blow Their Minds.”
+Technology in Action.
+Moreno, R. J. (2014). “Tracking Humano mediante Kinect para control de robots”.
+Universidad Autónoma de Colombia.
+Niu, J., Quian, R. and Yang, H. (2013). “Developing a Gesture Based Remote HumanRobot Interaction System Using Kinect”, In: “International Journal of Smart Home”.
+Ribeiro, L. C., Farias, Farias, A.B., Amaral, E.M.A. (2013) “Sistema De Controle De
+uma Plataforma Robótica Experimental Baseado em Visão Computacional
+Utilizando Kinect”, In: “Mostra Nacional de Robótica”.
+Zhang, Z. (2012) “Microsoft Kinect Sensor and Its Effect”, In: “IEEE Multimedia”,
+pages 4-10.
+
+735
+
+
