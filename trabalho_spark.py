@@ -3,7 +3,8 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import os
-
+import nltk
+nltk.download('stopwords')
 # =========== Trabalho de pesquisa e ordenação
 
 # FUNÇÕES
@@ -29,7 +30,11 @@ def conta_palavras(artigo_pdf):
     regex = '([,.?!]?\s+[.,?!]?)+'
     palavras_contadas = artigo_pdf.select(explode(split(artigo_pdf.value, regex)).alias("palavras")).groupBy("palavras").count()
 
-    palavras_contadas = palavras_contadas.orderBy("count")
+    # ordena por count
+    palavras_contadas = palavras_contadas.orderBy(desc("count"))
+
+    # remove stopwords portugues
+    palavras_contadas = palavras_contadas.filter(~palavras_contadas["palavras"].isin(nltk.corpus.stopwords.words('portuguese')))
 
     return palavras_contadas
 
