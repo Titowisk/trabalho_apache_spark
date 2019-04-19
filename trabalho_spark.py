@@ -33,8 +33,9 @@ def conta_palavras(artigo_pdf):
     # ordena por count
     palavras_contadas = palavras_contadas.orderBy(desc("count"))
 
-    # remove stopwords portugues
-    palavras_contadas = palavras_contadas.filter(~palavras_contadas["palavras"].isin(nltk.corpus.stopwords.words('portuguese')))
+    # remove stopwords portugues e alguns outros caracteres
+    stopwords_and_characteres = nltk.corpus.stopwords.words('portuguese') + ["-", "—", "", "–"]
+    palavras_contadas = palavras_contadas.filter(~palavras_contadas["palavras"].isin(stopwords_and_characteres))
 
     return palavras_contadas
 
