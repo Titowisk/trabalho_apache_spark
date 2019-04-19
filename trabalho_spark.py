@@ -4,6 +4,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import os
 import nltk
+import datetime
 nltk.download('stopwords')
 # =========== Trabalho de pesquisa e ordenação
 
@@ -39,30 +40,32 @@ def conta_palavras(artigo_pdf):
 
     return palavras_contadas
 
-def cria_arquivo_contagem(contagem, titulo_artigo):
-   # Pegar o resultado e escrever num arquivo
-   pass
 
 # MAIN
 
-spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+try:
+    # medir tempo
+    dt1 = datetime.datetime.now()
+    spark = SparkSession.builder.appName("SimpleApp").getOrCreate()
+
+    pasta_artigos = 'artigos_txt' # trocar para artigos_teste para... ... ... teste (com arquivos menores) :D
+    lista_de_artigos = os.listdir(pasta_artigos)
+
+    artigos = cria_spark_cache(pasta_artigos)
+
+    # https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-operations
+    for artigo_nome, artigo_conteudo in artigos.items(): #dict.values() ->  [spark.read.text(artigo1).cache(), spark.read.text(artigo2).cache(), ...]
+        palavras_contadas = conta_palavras(artigo_conteudo) # objeto <class 'pyspark.sql.dataframe.DataFrame'> 
+
+        # https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrameWriter
+        # https://stackoverflow.com/questions/31937958/how-to-export-data-from-spark-sql-to-csv
+        palavras_contadas.coalesce(1).write.csv(path=os.path.join('resultado', artigo_nome), sep='|', mode='append')
+        
+finally:
+    if spark: spark.stop()
+    dt2 = datetime.datetime.now()
+    print("Tempo gasto: {tempo}".format(tempo = dt2-dt1))
 
 
-pasta_artigos = 'artigos_txt' # trocar para artigos_teste para... ... ... teste (com arquivos menores) :D
-lista_de_artigos = os.listdir(pasta_artigos)
-
-artigos = cria_spark_cache(pasta_artigos)
-
-# https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-operations
-for artigo_nome, artigo_conteudo in artigos.items(): #dict.values() ->  [spark.read.text(artigo1).cache(), spark.read.text(artigo2).cache(), ...]
-    palavras_contadas = conta_palavras(artigo_conteudo) # objeto <class 'pyspark.sql.dataframe.DataFrame'> 
-
-    # https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrameWriter
-    # https://stackoverflow.com/questions/31937958/how-to-export-data-from-spark-sql-to-csv
-    palavras_contadas.coalesce(1).write.csv(path=os.path.join('resultado', artigo_nome), sep='|', mode='append')
-    # palavras_contadas.show()
-    
-    # print( palavras_contadas.collect() ) # ! Problema de codificação de bits
 
 
-spark.stop()
