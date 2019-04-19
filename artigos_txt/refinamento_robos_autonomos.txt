@@ -1,0 +1,259 @@
+Refinamento de modelos de navegação de robôs autônomos
+através da calibração do sistema de odometria
+Rafael da P. Cândido1 , Gina M. B. de Oliveira1 , Luiz G. A. Martins1
+1
+
+Faculdade de Computação
+Universidade Federal de Uberlândia (UFU) – Uberlândia, MG – Brazil
+rcandidop@gmail.com, {gina, lgamartins}@ufu.br
+
+Resumo. Técnicas bio-inspiradas têm sido investigadas no planejamento de rotas em modelos de navegação de robôs autônomos. Dentre essas técnicas, os
+autômatos celulares (ACs) se mostraram uma opção descentralizada e de baixo
+custo computacional. A partir do estudo de modelos de navegação baseado em
+ACs publicados previamente, percebeu-se que o uso de ambientes formados por
+células do tamanho do robô e-puck resulta em trajetórias com colisões. Neste
+trabalho, um método de calibração da odometria foi integrado a esses modelos a fim de garantir uma trajetória mais precisa. Simulações mostraram que o
+método adotado foi capaz de melhorar a trajetória no cenário avaliado. O robô
+não só chegou mais próximo da célula objetivo, como também apresentou uma
+trajetória mais próxima da ideal e totalmente livre de colisões.
+
+1. Introdução
+Na robótica, um mecanismo para determinar o posicionamento dentro do ambiente a ser
+navegado é a odometria, que é um dos métodos mais amplamente utilizados para estimar
+a posição de um robô durante sua navegação, pois sua aplicação fornece informações
+de maneira simples e acessı́vel [Borenstein and Feng. 1994]. A ideia fundamental da
+odometria é a integração da informação incremental do movimento das rodas ao longo
+do tempo, o qual envolve um inevitável acúmulo de erros provenientes do ambiente e
+da base robótica. Esses acúmulos causam grandes erros na estimativa da posição, os
+quais aumentam proporcionalmente com a distância percorrida pelo robô. Apesar dessas
+limitações, muitos pesquisadores concordam que a odometria é uma parte importante do
+sistema de navegação de um robô, e que deve ser utilizada em conjunto com métodos
+de posicionamento absoluto (como o GPS) para proporcionar uma estimativa de posição
+mais confiável.
+
+Devido à sua natureza discreta, sua arquitetura descentralizada e
+sua capacidade para representar fenômenos complexos, os autômatos celulares (ACs) têm sido utilizados no desenvolvimento de vários modelos de navegação [Tzionas et al. 1997, Marchese 2002, Ioannidis et al. 2008,
+Akbarimajd and Hassanzadeh 2011,
+Ferreira et al. 2014,
+Lima and Oliveira 2017].
+Neste artigo são estudados os modelos baseados na difusão de distâncias por ACs, mais
+especificamente as implementações para um único robô apresentadas em [Behring et
+al. 2000] e [Oliveira et al. 2015]. A tarefa do robô é determinar a melhor trajetória
+entre as posições atual (célula inicial) e desejada (célula objetivo), sem colidir com
+os obstáculos existentes no ambiente. Para isso, esse tipo de modelo precisa conhecer
+previamente o ambiente a ser navegado, a fim de identificar as posições dos obstáculos,
+do robô e da célula objetivo. Um sistema de odometria é utilizado de modo que o
+robô possa fazer uma estimativa de sua localização durante a navegação pelo ambiente.
+Entretanto, nas simulações com os modelos implementados ([Behring et al. 2000]
+e [Oliveira et al. 2015]), um erro considerável foi verificado, retornando trajetórias
+não apropriadas para a navegação. Neste trabalho implementamos um sistema de
+calibração baseado no método University of Michigan Benchmark test (UMBMark)
+[Borenstein and Feng. 1994], capaz de determinar valores aceitáveis para as principais
+fontes de incerteza nos cálculos de odometria. O objetivo é obter uma estimativa mais
+precisa da posição do robô e, consequentemente, melhorar sua trajetória. O modelo calibrado foi avaliado considerando a navegação de robôs e-puck em ambientes simulados
+no software. Os resultados indicam que o sistema de calibração foi capaz de reduzir a
+amplitude dos erros de odometria, garantindo a obtenção de uma trajetória mais precisa e
+livre de colisões em todos os cenários e modelos utilizados.
+
+2. Autômatos Celulares e Planejamento de Rotas
+Autômatos Celulares (ACs) são sistemas dinâmicos totalmente discretos compostos por
+componentes simples com interações locais. Basicamente, um AC consiste em duas partes: o espaço celular e a regra de transição. O espaço celular é um quadrilátero regular
+com dimensão D de N células, sendo cada com um idêntico padrão de conexões locais
+com outras células. Os Autômatos Celulares são caracterizadas por uma regra de transição
+que determina qual será a próxima configuração da rede a partir de seu estado atual. Assim, as células interagem localmente em um tempo discreto t, onde o estado da célula i
+no tempo t + 1 depende apenas dos estados de sua vizinhança no tempo t, incluindo a
+célula i, de modo que a atualização das células é geralmente realizada de uma maneira
+sı́ncrona. Considerando as redes bidimensionais, as vizinhanças espaciais foram analisadas considerando a vizinhança de Moore, a qual é composta pela célula central e seus oito
+vizinhos imediatos (Sarkar, 2000). Portanto, ACs são sistemas espacialmente descentralizados, com um grande número de componentes conectados localmente, de modo que
+esses sistemas são capazes de desempenhar funções complexas com alto grau de robustez
+e eficiência, tal como o comportamento de um modelo ou sistema natural complexo. O
+planejamento de rotas para robôs autônomos busca encontrar uma sequência de passos a
+serem aplicados para se obter o melhor caminho, ou a rota ótima, entre o ponto inicial e a
+célula objetivo. Sendo que para determinado caso o conceito de melhor caminho está associado ao caminho mais rápido, ao mais curto, ou àquele que minimiza a quantidade de
+giros e/ou frenagens. Nesse contexto, os algoritmos de planejamento precisam conhecer
+previamente o ambiente a ser navegado.
+
+3. Modelos de Navegação Investigados
+Recentemente, vários modelos baseados em ACs têm sido utilizados no planejamento
+de rotas [Shu and Buxton 1995, Behring et al. 2000, Marchese 2002, Parker et al. 2003,
+Ioannidis et al. 2011, Oliveira et al. 2015]. Neste artigo, são investigados os modelos
+de navegação propostos em [Behring et al. 2000] e [Oliveira et al. 2015], os quais seguem uma abordagem de difusão de distâncias baseada em ACs com o objetivo de encontrar a melhor rota para um robô autônomo navegando em um espaço de topologia
+planar [Marchese 1996]. Nessa abordagem, o ambiente possui obstáculos fixos e todas
+as informações sobre o espaço necessárias à navegação são conhecidas previamente. O
+espaço fı́sico é representado por um plano bidimensional dividido em n × m células, de
+acordo com a resolução desejada. O robô ocupa uma célula do reticulado, correspondente à posição do centro cinemático do robô e sua orientação pode ser em 8 direções
+(norte, sul, leste, oeste, nordeste, noroeste, sudeste e sudoeste). A atualização das células
+do reticulado é feita de modo sı́ncrono e é baseada na vizinhança de Moore (vizinhança
+composta pela célula central e suas 8 células adjacentes no plano). O estado de cada célula
+do reticulado é representado pela seguinte estrutura: Obstáculo: define se a célula é livre
+de obstáculo (valor 0), se foi identificado um obstáculo na posição (valor n), ou se a célula
+está próxima a um obstáculo (valor entre 1 e n-1, sendo que quanto mais próximo, maior é
+o valor). Posição inicial: variável lógica que indica se é a posição inicial (verdadeiro) ou
+não (falso). Meta: variável lógica que indica se a posição é a meta buscada (verdadeiro)
+ou não (falso). Atributo de Atração: indica a distância mı́nima até a célula meta, de
+acordo com a direção do robô na célula, para as células que não são obstáculos. Próxima
+direção: equivale à indicação de qual é a próxima direção a seguir, caso o robô esteja na
+célula.
+O robô deve partir de uma posição inicial referenciada no reticulado, percorrer o
+ambiente e atingir uma célula denominada objetivo da melhor maneira possı́vel (percorrer a menor distância e no menor tempo). No modelo descrito em [Behring et al. 2000], a
+navegação do robô é baseada em um algoritmo de difusão de distância que é dividido em
+fases. Inicialmente, é realizado um alargamento dos obstáculos identificados no reticulado
+a fim de evitar uma possı́vel colisão do robô durante sua trajetória. O processo de alargamento consiste da ampliação das dimensões do obstáculo real para algumas células vizinhas, criando uma área de segurança ao seu redor. O número de células correspondentes
+ao obstáculo alargado é um parâmetro a ser escolhido no algoritmo. Isso é feito para evitar que o robô atinja a quina de um obstáculo real quando fizer alguma conversão. A ideia
+é que o robô navegue pelo ambiente sem invadir as áreas de segurança dos obstáculos.
+Após o alargamento, é realizada a difusão das distâncias em relação à célula objetivo, ou
+seja, é determinado o quão distantes estão todas células do reticulado da célula objetivo.
+Assim, se uma célula está a uma distância v do objetivo, então suas células livres vizinhas
+que ainda não têm valor atribuı́do estão a uma distância v + 1. A Figura 1 ilustra a difusão
+das distâncias e planejamento de rotas. As células em preto representam os obstáculos,
+as brancas são células livres e as cinzas indicam, respectivamente, a posição do robô (I)
+e a célula objetivo (G). A numeração em cada célula corresponde a sua distância até a
+célula objetivo. A Figura 1(a) demonstra o mapeamento do ambiente a ser navegado (reticulado) após a difusão das distâncias. A Figura 1(b) apresenta o caminho escolhido de
+acordo com as distâncias registradas em cada célula.
+A abordagem proposta em [Oliveira et al. 2015] é uma evolução do modelo an-
+
+(a) Difusão das distâncias
+
+(b) Caminho encontrado
+
+Figura 1. Exemplo de planejamento de rotas
+
+terior ([Behring et al. 2000]), na qual a rota é recalculada a cada n passos do robô. Essa
+estratégia visa reduzir o erro final do robô em relação a célula objetivo. Esse erro final é resultante dos erros de odometria acumulados que foram observados durante as simulações
+em diversos cenários avaliados. No novo modelo, as distâncias de cada célula livre em
+relação ao objetivo é recalculada após um determinado número de passos do robô. Em
+cada recálculo, a posição inicial do robô é diferente daquela considerada anteriormente,
+uma vez que o mesmo se deslocou pelo ambiente, e um novo caminho é definido, reduzindo o erro entre a posição final do robô e a célula objetivo. Além do recálculo, o modelo
+também foi adaptado para tratar os casos em que o robô está cercado por obstáculos alargados, ou se encontra em uma célula livre, mas a única alternativa para chegar ao objetivo
+seria passar por uma área alargada. No modelo inicial, quando alguma dessas situações
+ocorrem, a célula onde está o robô não é atingida pela difusão da distância e a rota é considerada inexistente. Essa situação é mais crı́tica quando há a realização do recálculo, e
+a nova posição do robô é uma célula alargada devido aos erros de odometria acumulados
+durante o percurso. Nessa abordagem, duas novas medidas foram integradas ao modelo
+como sub-estados das células alargadas. Uma medida para determinar a distância entre a
+célula que está em uma área de alargamento e a célula livre mais próxima. A outra medida
+quantifica o quão próxima cada célula das regiões alargadas está de um obstáculo. Essas
+medidas são calculadas através de dois novos ACs. Com essa intervenção busca-se que
+o robô saia rapidamente da área alargada para uma célula livre, bem como passe o mais
+distante possı́vel do obstáculo que originou o alargamento.
+
+4. Modificações Implementadas
+A primeira alteração realizada nos modelos investigados refere-se ao tamanho das células
+do reticulado. Nos modelos originais, o ambiente a ser navegado é mapeado em um reticulado com células de 14 centı́metros. Considerando que os obstáculos são alargados
+em uma célula ao seu redor para formar uma área de segurança, a navegação pelo ambiente fica restrita a regiões onde os obstáculos estejam distantes entre si por 42 centı́metros. Dado que o diâmetro de um robô e-puck é de 7 centı́metros, a área necessária entre
+os obstáculos para que haja um caminho possı́vel corresponde a seis vezes o seu tamanho. Com o intuito de reduzir essa restrição, optou-se por utilizar células com o mesmo
+tamanho do diâmetro do robô (7 cm). Assim, é possı́vel discretizar mais o ambiente,
+permitindo a navegação por regiões mais estreitas e complexas.
+Apesar de refinar a navegabilidade do robô, durante as simulações com o novo
+reticulado, observou-se a ocorrência de colisões, invasão das áreas de segurança e/ou
+divergência entre as trajetórias realizada e planejada (robô perdido). Essa alteração de
+
+comportamento ocorre porque, com a redução na dimensão das células e, consequentemente, das áreas de segurança em torno dos obstáculos, o modelo é mais susceptı́vel à
+falhas em função dos erros de odometria. Assim, com o objetivo de melhorar o sistema
+de odometria dos modelos de navegação, foi adotado o método de calibração University
+of Michigan Benchmark test (UMBMark) [Borenstein and Feng. 1994]. O método UMBMark é um processo sistemático de calibração da odometria de um robô de tração diferencial, de forma a compensar o efeito dos erros sistemáticos. Esses erros são causados
+por imperfeições fı́sicas e mecânicas de um robô móvel. No trabalho desenvolvido por
+[Borenstein and Feng. 1994], observou-se que as duas fontes de erros sistemáticos mais
+notórios são os diâmetros desiguais das rodas e a incerteza sobre a distância entre rodas. Uma variação nesses valores ocasionará uma trajetória bastante diferente da ideal,
+e por isso devem ser calibrados. Dessa forma, pretende-se obter com isso os valores dos
+diâmetros das duas rodas e a distância entre rodas corrigidos. A maioria dos robôs móveis
+usa pneus de borracha para melhorar a tração. Estes pneus são difı́ceis de fabricar exatamente com o mesmo diâmetro. Além disso, pneus de borracha comprimem de forma
+diferente sob distribuição de carga assimétrica. Qualquer um desses efeitos pode causar
+erros substanciais de contagem decrescente. A distância entre eixos é definida como a
+distância entre pontos de contato das duas rodas motrizes de um robô de disco diferencial
+com o chão. A distância entre eixos deve ser conhecida para calcular o número de pulsos
+do codificador diferencial que correspondem a uma certa rotação do robô. A incerteza na
+distância entre rodas é causada pelo fato de que os pneus de borracha contatam o chão não
+em um ponto, mas em uma área de contato. Nesse sentido, nesse processo de calibração,
+foram calculados os valores para a base do robô e para diâmetros das rodas esquerda e
+direita. Além dos erros construtivos do robô, é importante citar o efeito das aproximações
+no erro da odometria, visto que ainda que o robô tivesse uma geometria perfeita, ainda
+haveria um erro de posição final após longas distâncias, em virtude da aproximação da
+constante π.
+
+5. Simulações e Resultados
+A fim de avaliar a influência do método de calibração UMBMark na qualidade das
+trajetórias resultantes dos modelos investigados, experimentos foram executados considerando a navegação de um robô e-puck em cenários (ambientes) implementados na
+plataforma de simulação Webots. A configuração dos cenários (posicionamento dos
+obstáculos, robô e célula objetivo) foi determinada de modo a exigir várias rotações durante a trajetória do robô. Essa decisão é baseada em experimentos prévios, nos quais
+percebeu-se que os erros da odometria são potencializados por movimentos de rotação.
+Nos experimentos feitos, dois correspondem às implementações originais dos modelos propostos em [Behring et al. 2000] e [Oliveira et al. 2015], enquanto que as outras
+duas são variações desses modelos utilizando o método UMBMark para a calibração da
+odometria. Como o objetivo é avaliar a influência do método de calibração da odometria,
+as análises de desempenho foram agrupadas em função dos modelos de navegação. A
+Figura 2(a) mostra o cenário utilizado nas simulações das abordagens. Ele é formado por
+um reticulado bidimensional dividido em 9 x 18 células. Os obstáculos e a célula objetivo
+são representados pelas células pretas e vermelha, respectivamente. Nesta figura também
+é possı́vel observar a trajetória ideal (desejada) do robô, a qual está destacada em vermelho. Para medir a eficiência das abordagens, adotou-se como métricas de desempenho o
+
+erro de posição final e o número de ocorrências de colisão na trajetória do robô. O erro de
+posição final é a distância entre a posição final do centro do robô, após o percorrimento
+da trajetória, e o ponto central da célula objetivo.
+A Figura 2 mostra os resultados obtidos nas simulações com as duas abordagens
+baseadas no modelo proposto em [Behring et al. 2000]: modelo de navegação original e
+sua variação utilizando o método de calibração UMBMark. As células cinzas representam
+as áreas de segurança, decorrentes do alargamento de uma célula ao redor dos obstáculos,
+enquanto que a linha preta representa a trajetória realizada pelo robô. Em uma navegação
+ideal, as áreas de segurança não deveriam ser invadidas pelo robô. Entretanto, como pode
+ser observado na simulação do modelo original (Figura 2(b)), os erros acumulados de
+odometria durante a trajetória provocam não só a invasão dessas áreas, como também a
+colisão do robô com vários obstáculos (indicado pelas setas amarelas). Devido às colisões, o robô se perde e não consegue atingir a célula alvo. Esse comportamento era
+esperado, uma vez que o planejamento da rota é realizado uma única vez no inı́cio do
+processo. Dessa forma, todo o esforço para manter a trajetória do robô em conformidade com a rota definida inicialmente é baseado nas respostas do sistema de odometria.
+Portanto, a navegação do robô é mais susceptı́vel aos erros de odometria. A Figura 2(c)
+mostra a trajetória obtida a partir do modelo que adota o método de calibração UMBMark. Nessa simulação, o robô percorre uma distância de 2,05 metros em 2 minutos e 3
+segundos. Apesar de apresentar duas invasões das áreas de segurança e um erro final de
+posicionamento de 5,1802 centı́metros, a trajetória resultante é livre de colisões e o robô
+consegue alcançar a célula objetivo.
+
+(a) Rota ideal
+
+(b) Modelo original
+
+(c) Modelo refinado
+
+Figura 2. Simulações baseadas no modelo proposto em [Behring et al. 2000].
+
+Com o intuito de tornar a navegação mais adaptável, também foram implementadas duas abordagens baseadas no modelo proposto em [Oliveira et al. 2015]: modelo
+original e sua variação com o método de calibração UMBMark. Esse modelo adota um
+mecanismo de recálculo da trajetória periódico, o qual define uma nova rota a cada n passos do robô. As trajetórias resultantes da simulação dessas duas abordagens é ilustrada
+na Figura 3. O número de passos para o recálculo depende da configuração do reticulado
+utilizado (das dimensões do ambiente e do caminho que deve ser percorrido pelo robô).
+Conforme pode ser observado na simulação apresentada na Figura 3(a), o modelo original
+(com recálculo, mas sem calibração da odometria) foi capaz de atingir a célula alvo com
+
+um erro final de 3,1156 centı́metros. Nessa trajetória, o robô percorreu uma distância de
+2,46 metros em 2 minutos e 16 segundos. Em contrapartida, durante o percurso houveram algumas colisões nos pontos indicados pelas setas amarelas e algumas invasões das
+áreas de segurança. Com a abordagem que combina o método UMBMark e o recálculo de
+rotas, o robô atingiu a célula objetivo com o menor erro final (1,4940 centı́metros) e sem
+nenhuma colisão, conforme ilustrado na Figura 3(b). Apesar de ocorrer algumas invasões
+das áreas de segurança, a quantidade é bem menor que das demais abordagens. Além
+disso, nessa abordagem, o robô percorreu uma distância de 1,98 metros em 1 minuto e 56
+segundos.
+
+(a) Modelo original
+
+(b) Modelo refinado
+
+Figura 3. Simulações baseadas no modelo apresentado em [Oliveira et al. 2015].
+
+A partir das simulações, é possı́vel concluir que o uso do método de calibração
+UMBMark melhorou significativamente o desempenho dos modelos de navegação investigados em relação ao posicionamento do robô no ambiente e à sua proximidade com a
+célula objetivo no final da simulação. Como esperado, devido a sua adaptabilidade durante a trajetória, o modelo com recálculo apresentou os melhores resultados. Portanto, a
+abordagem que combina os dois métodos (recálculo e calibração da odometria) é a mais
+adequada para a navegação de robôs autônomos a partir de métodos baseados na difusão
+de distâncias através de autômatos celulares.
+
+6. Conclusões
+A implementação do método de calibração UMBMark permitiu o refinamento do sistema
+de odometria adotado pelos modelos de navegação baseados em autômatos celulares. Seu
+uso possibilitou uma trajetória mais precisa e um menor erro final de posicionamento do
+robô em relação à célula objetivo. Quando esse método é combinado com o recálculo
+da rota proposto por [Oliveira et al. 2015], o modelo de navegação apresenta uma melhora significativa no seu desempenho, obtendo a melhor precisão entre as abordagens
+avaliadas, bem como uma trajetória mais próxima da idela e totalmente livre de colisões.
+Atualmente, estão sendo investigadas possı́veis alterações na regra do autômato
+celular visando a redução os movimentos de rotações e, consequentemente, o acúmulo de
+erros de odometria durante a navegação. Além disso, como trabalho futuro, pretende-se
+realizar experimentos com robôs e-puck para avaliar a eficiência dos modelos investigados
+
+em cenários reais, bem como aplicar o método de calibração na navegação de times de
+robôs a fim de analisar seu influência em modelos mais complexos.
