@@ -3,7 +3,8 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import os
-
+import nltk
+nltk.download('stopwords')
 # =========== Trabalho de pesquisa e ordenação
 
 # MAIN
@@ -61,7 +62,8 @@ Explode
 only showing top 20 rows 
 """
 
-count = dataframe.select(explode(split(dataframe.value, '([,.?!]?\s+[.,?!]?)+')).alias("Palavras")).groupBy("palavras").count().show()
+count_df = dataframe.select(explode(split(dataframe.value, '([,.?!]?\s+[.,?!]?)+')).alias("Palavras")).groupBy("palavras").count()
+count_df.filter(~count_df["palavras"].isin(nltk.corpus.stopwords.words('portuguese'))).show()
 """
 count
 +------------+-----+     
