@@ -26,7 +26,10 @@ def cria_spark_cache(pasta_artigos):
 def conta_palavras(artigo_pdf):
     # conta a quantidade de palavras por palavra
     # https://spark.apache.org/docs/latest/quick-start.html#more-on-dataset-operations
-    palavras_contadas = artigo_pdf.select(explode(split(artigo_pdf.value, "\s+")).alias("palavras")).groupBy("palavras").count()
+    regex = '([,.?!]?\s+[.,?!]?)+'
+    palavras_contadas = artigo_pdf.select(explode(split(artigo_pdf.value, regex)).alias("palavras")).groupBy("palavras").count()
+
+    palavras_contadas = palavras_contadas.orderBy("count")
 
     return palavras_contadas
 
