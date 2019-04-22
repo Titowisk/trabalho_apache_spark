@@ -75,7 +75,7 @@ finally:
     dt2 = datetime.datetime.now()
     print("Tempo gasto: {tempo}".format(tempo = dt2-dt1))
     #print(topArtigos)
-    print("Os três artigos com maior número de ocorrencias da palavra " + palavra + ": " + str(sorted(topArtigos, key=topArtigos.get, reverse =True)))
+    print("Os três artigos com maior número de ocorrencias da palavra " + palavra + ": " + str(sorted(topArtigos, key=topArtigos.get, reverse =True)[:3]))
 
 
 
